@@ -1,11 +1,42 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Tasks from "./components/Personal/Tasks";
+import DashboardPersonal from "./components/Personal/DashboardPersonal";
 
 function App() {
   return (
-    <div style={{ margin: "40vh", color: "pink" }} className="App">
-      <h2>Building cool app with Monday.com</h2>
-    </div>
+    <>
+      <Grid container spacing={2}>
+        <Grid
+          item
+          xs={4}
+          md={4}
+          lg={4}
+          style={{
+            textAlign: "center",
+            backgroundColor: "grey",
+            height: "100%",
+          }}
+        >
+          <Tasks />
+        </Grid>
+        <Grid
+          item
+          xs={8}
+          md={8}
+          lg={8}
+          style={{
+            textAlign: "center",
+            backgroundColor: "gre",
+            height: "100%",
+          }}
+        >
+          <DashboardPersonal />
+        </Grid>
+      </Grid>
+    </>
   );
 }
 
