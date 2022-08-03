@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  background-color: rgb(246, 246, 246);
 }
 
 .App-logo {
@@ -26,6 +26,29 @@
 
 .App-link {
   color: #61dafb;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  padding-left: 60px;
+}
+.btn-container{
+  padding-left:60px;
+  padding-top:17px;
+  padding-bottom:35px;
+ 
+  }
+.btn-team {
+    border: none; 
+    background-color: lightgray;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.activites-container{
+  
 }
 
 @keyframes App-logo-spin {
