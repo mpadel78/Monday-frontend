@@ -3,8 +3,30 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import VerticalText from "../VerticalText";
+
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  AxisLabel,
+  Area,
+} from "recharts";
 
 function DashboardPersonal() {
+  const greet = "haha";
+  const data = [
+    { year: "1", value: 200 },
+    { year: "1", value: 500 },
+    { year: "1", value: 600 },
+    { year: "1", value: 800 },
+  ];
+
   return (
     <>
       <Grid container direction="row" spacing={1}>
@@ -45,7 +67,23 @@ function DashboardPersonal() {
         */}
         <Grid item xs={12} md={12} lg={12} sm container>
           <Grid item xs={6} md={6} lg={6}>
-            Graph goes here
+            <ResponsiveContainer height={300}>
+              <LineChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+              >
+                <Line
+                  type="monotone"
+                  dataKey="value"
+                  stroke="rgb(173, 216, 230)"
+                  dot={false}
+                />
+                <XAxis tick={false} label="Month of July" />
+                <YAxis tick={false} label="Points" />
+              </LineChart>
+            </ResponsiveContainer>
           </Grid>
 
           <Grid item xs={6} md={6} lg={6}>
