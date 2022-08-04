@@ -55,7 +55,7 @@ function DashboardPersonal() {
           style={{ backgroundColor: "white", height: "10vh" }}
         >
           <Typography variant="subtitle1">
-            <strong>Your Scoreboard July</strong>
+            <h2>Your Scoreboard July</h2>
           </Typography>
         </Grid>
 
@@ -66,11 +66,11 @@ function DashboardPersonal() {
     
         */}
         <Grid item xs={12} md={12} lg={12} sm container>
-          <Grid item xs={6} md={6} lg={6}>
-            <ResponsiveContainer height={300}>
+          <Grid item xs={6} md={6} lg={6} style={{paddingTop:'130px'}}>
+            <ResponsiveContainer height={350}>
               <LineChart
                 width={500}
-                height={300}
+                height={350}
                 data={data}
                 margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
               >
@@ -95,34 +95,21 @@ function DashboardPersonal() {
             </Button>
             <br />
             <br />
-
-            <Paper
-              elevation={24}
-              sx={{
-                p: 2,
-                margin: "auto",
-
-                flexGrow: 1,
-                height: "auto",
-                margin: "2vh",
-                backgroundColor: (theme) =>
-                  theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-              }}
-              style={{ backgroundColor: "white" }}
-            >
-              <Typography variant="body2" gutterBottom>
-                Biking, 200 points
+            <div style={{paddingTop:'90px'}}>
+              <Typography variant="body1" gutterBottom>
+                <><span style={{fontSize:'18px'}} class="dot"></span><span style={{ paddingLeft:'10px'}}>Biking, 200 points</span></>
               </Typography>
-              <Typography variant="body2" gutterBottom>
-                Tree planting, 200 points
+              <Typography variant="body1" gutterBottom>
+                <><span style={{fontSize:'18px'}} class="dot"></span><span style={{ paddingLeft:'10px'}}>Tree planting, 200 points</span></>
               </Typography>
-              <Typography variant="body2" gutterBottom>
-                Vegan Meals, 200 points
+              <Typography variant="body1" gutterBottom>
+                <><span style={{fontSize:'18px'}} class="dot"></span><span style={{ paddingLeft:'10px'}}>Vegan Meals, 200 points</span></>
               </Typography>
-              <Typography variant="body2" gutterBottom>
-                Composting, 200 points
+              <Typography variant="body1" gutterBottom>
+                <><span style={{fontSize:'18px'}} class="dot"></span><span style={{ paddingLeft:'10px'}}>Composting, 200 points</span></>
               </Typography>
-            </Paper>
+            </div>
+              
           </Grid>
         </Grid>
       </Grid>
