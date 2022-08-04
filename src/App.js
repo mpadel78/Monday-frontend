@@ -1,19 +1,43 @@
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
 import Tasks from "./components/Personal/Tasks";
-import Card from '@mui/material/Card';
+import Mascot from "./components/Team/Mascot";
 import DashboardPersonal from "./components/Personal/DashboardPersonal";
+import DashboardTeam from "./components/Team/DashboardTeam";
 import Welcome from "./components/Welcome";
 import Activities from "./components/Personal/Activities";
 import "./App.css";
 import Badges from "./components/Personal/Badges";
 
 function App() {
+  const [view, setView] = useState("Personal");
+
+  const name = "Jessie";
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("The link was clicked.");
+
+    if (view == "Teams") setView("Personal");
+    else setView("Teams");
+  };
+
   return (
     <div class="App">
-      <Welcome />
+      <div class="header">
+        <h2>Welcome Back, {name}!</h2>
+        <div class="btn-container">
+          <button onClick={handleClick} class="btn-team">
+            <strong>
+              {`Switch to ${view == "Teams" ? "Personal" : "Teams"}`}
+            </strong>
+          </button>
+        </div>
+      </div>
       <Grid container spacing={2}>
         <Grid
           item
@@ -22,18 +46,21 @@ function App() {
           lg={4}
           style={{
             textAlign: "center",
+
+            paddingLeft: "30px",
             height: "100%",
-            paddingLeft:'30px',
           }}
         >
-          <Card variant="outlined">
-            <Tasks />
+          <Card
+            variant="outlined"
+            style={{ height: "100vh", overflowY: "auto" }}
+          >
+            {view == "Teams" ? <Mascot /> : <Tasks />}
           </Card>
           <Card variant="outlined">
-             <Activities />
+            <Activities />
           </Card>
-         
-        </Grid> 
+        </Grid>
         <Grid
           item
           xs={8}
@@ -42,21 +69,20 @@ function App() {
           style={{
             textAlign: "center",
             backgroundColor: "gre",
-            height: "100%",
-            paddingRight:'10px',
+            height: "100vh",
+            paddingRight: "10px",
           }}
         >
-          <Card variant="outlined">
-            <DashboardPersonal />
+          <Card style={{ height: "100vh" }} variant="outlined">
+            {view == "Teams" ? <DashboardTeam /> : <DashboardPersonal />}
           </Card>
 
           <Card variant="outlined">
-            <Badges />
+            {view == "Teams" ? <br /> : <Badges />}
           </Card>
-         
         </Grid>
       </Grid>
-    </ div>
+    </div>
   );
 }
 
