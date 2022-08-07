@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Tasks from "./components/Personal/Tasks";
 import Mascot from "./components/Team/Mascot";
 import DashboardPersonal from "./components/Personal/DashboardPersonal";
 import DashboardTeam from "./components/Team/DashboardTeam";
-import Welcome from "./components/Welcome";
 import Activities from "./components/Personal/Activities";
 import "./App.css";
 import Badges from "./components/Personal/Badges";

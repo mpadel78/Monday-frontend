@@ -9,7 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
-import { deepOrange, green, deepPurple, blueGrey } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 function DashboardTeam() {
   const scores = [
