@@ -22,8 +22,6 @@ export default function Tasks() {
         <Paper
           sx={{
             p: 2,
-            margin: "auto",
-
             flexGrow: 1,
             height: "100%",
             margin: "2vh",
