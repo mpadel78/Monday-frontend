@@ -8,6 +8,8 @@ import DashboardTeam from "./components/Team/DashboardTeam";
 import Activities from "./components/Personal/Activities";
 import "./App.css";
 import Badges from "./components/Personal/Badges";
+import Button from "monday-ui-react-core/dist/Button";
+import "monday-ui-react-core/dist/main.css"
 
 function App() {
   const [view, setView] = useState("Personal");
@@ -24,15 +26,22 @@ function App() {
 
   return (
     <div class="App">
+      <Card>
       <div class="header">
         <h2>Welcome Back, {name}!</h2>
         <div class="btn-container">
-          <button onClick={handleClick} class="btn-team">
+          <Button onClick={handleClick} class="btn-team">
             <strong>
               {`Switch to ${view == "Teams" ? "Personal" : "Teams"}`}
             </strong>
-          </button>
+          </Button>
         </div>
+      </div>
+      </Card>
+      <div style={{padding:'13px'}}>
+        <Card variant="outlined">
+          {view == "Teams" ? <br /> : <Badges />}
+        </Card>
       </div>
       <Grid container spacing={2}>
         <Grid
@@ -71,15 +80,11 @@ function App() {
             paddingRight: "10px",
           }}
         >
-          <Card style={{ height: "100vh", padding:'0px 5px' }} variant="outlined">
+          <Card style={{ padding:'0px 5px' }} variant="outlined">
             {view == "Teams" ? <DashboardTeam /> : <DashboardPersonal />}
           </Card>
 
-          <div style={{paddingTop:'30px'}}>
-            <Card variant="outlined">
-              {view == "Teams" ? <br /> : <Badges />}
-            </Card>
-          </div>
+
         </Grid>
       </Grid>
     </div>

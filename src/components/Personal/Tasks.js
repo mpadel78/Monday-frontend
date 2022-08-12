@@ -2,17 +2,20 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import Button from "monday-ui-react-core/dist/Button";
+import "monday-ui-react-core/dist/main.css"
+
+const colors = ["green","purple","orange", "#92cbdf"]
 
 export default function Tasks() {
   const tasks = [
-    { name: "Carpool", points: 80 },
-    { name: "Bike/Walk", points: 80 },
-    { name: "Vegan Meal", points: 80 },
-    { name: "Vegetarian meal", points: 80 },
-    { name: "Planted a tree", points: 80 },
-    { name: "Used Reusable Bags", points: 80 },
-    { name: "Beach cleanup", points: 80 },
+    { name: "Carpool", points: 80, color: '#e7b859'},
+    { name: "Bike/Walk", points: 80, color: "#e7b859"},
+    { name: "Vegan Meal", points: 80, color:'#6dc762'},
+    { name: "Vegetarian meal", points: 80, color:'#6dc762'},
+    { name: "Planted a tree", points:80, color: '#92cbdf'},
+    { name: "Used Reusable Bags", points: 80, color:'#c892df'},
+    { name: "Beach cleanup", points: 80, color:'#c892df'}
   ];
   return (
     <div>
@@ -28,7 +31,7 @@ export default function Tasks() {
             backgroundColor: (theme) =>
               theme.palette.mode === "dark" ? "#1A2027" : "#fff",
           }}
-          style={{ backgroundColor: "white" }}
+          style={{ backgroundColor: data.color}}
         >
           <Grid container direction="row" spacing={1}>
             <Grid
@@ -36,7 +39,6 @@ export default function Tasks() {
               xs={12}
               md={12}
               lg={6}
-              style={{ backgroundColor: "#ADD8E6" }}
             >
               <Typography gutterBottom variant="subtitle1">
                 {data.name}
@@ -47,14 +49,11 @@ export default function Tasks() {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                <Button variant="contained" component="label">
+                <Button component="label">
                   I did this today
                 </Button>
                 <br />
                 <br />
-                <Button variant="outlined" component="label">
-                  Record for a different day
-                </Button>
               </Grid>
             </Grid>
           </Grid>
