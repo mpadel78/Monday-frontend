@@ -8,7 +8,6 @@ import Tasks from "./components/Personal/Tasks";
 import Mascot from "./components/Team/Mascot";
 import DashboardPersonal from "./components/Personal/DashboardPersonal";
 import DashboardTeam from "./components/Team/DashboardTeam";
-import Welcome from "./components/Welcome";
 import Activities from "./components/Personal/Activities";
 import "./App.css";
 import Badges from "./components/Personal/Badges";
@@ -46,7 +45,6 @@ function App() {
           lg={4}
           style={{
             textAlign: "center",
-
             paddingLeft: "30px",
             height: "100%",
           }}
@@ -57,9 +55,12 @@ function App() {
           >
             {view == "Teams" ? <Mascot /> : <Tasks />}
           </Card>
-          <Card variant="outlined">
-            <Activities />
-          </Card>
+          <div style={{padding:'30px 0px'}}>
+            <Card variant="outlined">
+              <Activities />
+            </Card>
+          </div>
+         
         </Grid>
         <Grid
           item
@@ -73,13 +74,15 @@ function App() {
             paddingRight: "10px",
           }}
         >
-          <Card style={{ height: "100vh" }} variant="outlined">
+          <Card style={{ height: "100vh", padding:'0px 5px' }} variant="outlined">
             {view == "Teams" ? <DashboardTeam /> : <DashboardPersonal />}
           </Card>
 
-          <Card variant="outlined">
-            {view == "Teams" ? <br /> : <Badges />}
-          </Card>
+          <div style={{paddingTop:'30px'}}>
+            <Card variant="outlined">
+              {view == "Teams" ? <br /> : <Badges />}
+            </Card>
+          </div>
         </Grid>
       </Grid>
     </div>
