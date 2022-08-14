@@ -1,63 +1,23 @@
 import React from "react";
-import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
-import { deepOrange, green, deepPurple, blueGrey } from "@mui/material/colors";
 
 function Badges() {
   return (
     <div>
       <h3>Badges</h3>
-
+      <div style={{padding:"8px"}}>
       <Grid container direction="row" spacing={1}>
-        <Grid item xs={6} md={3} lg={3}>
-          <Avatar
-            sx={{
-              bgcolor: deepOrange[500],
-              height: "10vh",
-              width: "10vh",
-              margin: "5px",
-            }}
-          >
-            Walker
-          </Avatar>
-        </Grid>
-        <Grid item xs={6} md={3} lg={3}>
-          <Avatar
-            sx={{
-              bgcolor: green[500],
-              height: "10vh",
-              width: "10vh",
-              margin: "5px",
-            }}
-          >
-            Jogger
-          </Avatar>
-        </Grid>
-        <Grid item xs={6} md={3} lg={3}>
-          <Avatar
-            sx={{
-              bgcolor: blueGrey[500],
-              height: "10vh",
-              width: "10vh",
-              margin: "5px",
-            }}
-          >
-            Cycler
-          </Avatar>
-        </Grid>
-        <Grid item xs={6} md={3} lg={3}>
-          <Avatar
-            sx={{
-              bgcolor: deepPurple[500],
-              height: "10vh",
-              width: "10vh",
-              margin: "5px",
-            }}
-          >
-            Veggie
-          </Avatar>
+        <Grid item xs={6} md={8} lg={8}>
+          <img style={{paddingRight:'15px'}} src="car_badge.svg" alt="mascot" width="100" height="150"/> 
+          <img style={{paddingRight:'15px'}} src="compost_badge.svg" alt="mascot" width="100" height="150"/>
+          <img style={{paddingRight:'15px'}}src="hangingsock_badge.svg" alt="mascot" width="100" height="150"/>
+          <img style={{paddingRight:'15px'}} src="recycling_badge.svg" alt="mascot" width="100" height="150"/>
+          <img style={{paddingRight:'15px'}} src="usedclothing_badge.svg" alt="mascot" width="100" height="150"/>
+          <img style={{paddingRight:'15px'}} src="vegetarianmeal_badge.svg" alt="mascot" width="100" height="150"/>
+          <img style={{paddingRight:'15px'}} src="waterbottle_badge.svg" alt="mascot" width="100" height="150"/>
         </Grid>
       </Grid>
+      </div>
     </div>
   );
 }

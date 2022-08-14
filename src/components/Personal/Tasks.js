@@ -5,17 +5,17 @@ import Typography from "@mui/material/Typography";
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
 
-const colors = ["green","purple","orange", "#92cbdf"]
+const colors = ['#e7b859','#6dc762','#92cbdf', '#c892df']
 
 export default function Tasks() {
   const tasks = [
-    { name: "Carpool", points: 80, color: '#e7b859'},
-    { name: "Bike/Walk", points: 80, color: "#e7b859"},
-    { name: "Vegan Meal", points: 80, color:'#6dc762'},
-    { name: "Vegetarian meal", points: 80, color:'#6dc762'},
-    { name: "Planted a tree", points:80, color: '#92cbdf'},
-    { name: "Used Reusable Bags", points: 80, color:'#c892df'},
-    { name: "Beach cleanup", points: 80, color:'#c892df'}
+    { name: "Carpool", points: 80, color: colors[0]},
+    { name: "Bike/Walk", points: 80, color: colors[0]},
+    { name: "Vegan Meal", points: 80, color: colors[1]},
+    { name: "Vegetarian meal", points: 80, color: colors[1]},
+    { name: "Planted a tree", points:80, color: colors[2]},
+    { name: "Used Reusable Bags", points: 80, color: colors[3]},
+    { name: "Beach cleanup", points: 80, color: colors[3]}
   ];
   return (
     <div>

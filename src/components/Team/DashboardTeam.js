@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from 'react';
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -12,6 +13,11 @@ import TableBody from "@mui/material/TableBody";
 import { deepOrange, green, deepPurple, blueGrey } from "@mui/material/colors";
 
 function DashboardTeam() {
+
+  const [date, setMonth] = useState(new Date());
+  var month= ["January","February","March","April","May","June","July",
+"August","September","October","November","December"];
+
   const scores = [
     { user: "A", points: 100 },
     { user: "B", points: 100 },
@@ -35,7 +41,7 @@ function DashboardTeam() {
           style={{ backgroundColor: "#ADD8E6", height: "10vh" }}
         >
           <Typography gutterBottom variant="subtitle1">
-            X points July
+            <h2>Team Scoreboard {month[date.getMonth()]}</h2>
           </Typography>
         </Grid>
         <Grid
@@ -45,9 +51,6 @@ function DashboardTeam() {
           lg={12}
           style={{ backgroundColor: "white", height: "10vh" }}
         >
-          <Typography variant="subtitle1">
-            <strong>Team Scoreboard July</strong>
-          </Typography>
           <Button variant="outlined" component="label">
             This month
           </Button>
