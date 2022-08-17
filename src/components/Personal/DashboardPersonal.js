@@ -19,7 +19,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function DashboardPersonal() 
+function DashboardPersonal( {points} ) 
 {
   const [date, setMonth] = useState(new Date());
 
@@ -121,7 +121,7 @@ function DashboardPersonal()
           <div class="points">
             <strong>
               <p>{month[date.getMonth()]} Progress</p>
-              <p>1,200 Points</p>
+              <p>{points} Points</p>
               <p>500 KG Carbon Saved</p>
             </strong>
           </div>

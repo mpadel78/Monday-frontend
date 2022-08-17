@@ -15,6 +15,8 @@ import { deepOrange, green, deepPurple, blueGrey } from "@mui/material/colors";
 function DashboardTeam() {
 
   const [date, setMonth] = useState(new Date());
+  const [points, setPoints] = useState(0);
+
   var month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 

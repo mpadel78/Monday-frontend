@@ -13,6 +13,7 @@ import "monday-ui-react-core/dist/main.css"
 
 function App() {
   const [view, setView] = useState("Personal");
+  const [points, setPoints] = useState(0)
 
   const name = "Jessie";
 
@@ -32,7 +33,7 @@ function App() {
         <div class="btn-container">
           <Button onClick={handleClick} class="btn-team">
             <strong>
-              {`Switch to ${view == "Teams" ? "Personal" : "Teams"}`}
+              {`Switch to ${view == "Teams" ? <DashboardPersonal points={points} /> : "Teams"}`}
             </strong>
           </Button>
         </div>
@@ -59,7 +60,7 @@ function App() {
             variant="outlined"
             style={{ height: "100vh", overflowY: "auto" }}
           >
-            {view == "Teams" ? <Mascot /> : <Tasks />}
+            {view == "Teams" ? <Mascot /> : <Tasks points={points} setPoints={setPoints} />}
           </Card>
           <div style={{padding:'30px 0px'}}>
             <Card variant="outlined">
@@ -81,7 +82,7 @@ function App() {
           }}
         >
           <Card style={{ padding:'0px 5px' }} variant="outlined">
-            {view == "Teams" ? <DashboardTeam /> : <DashboardPersonal />}
+            {view == "Teams" ? <DashboardTeam /> : <DashboardPersonal points={points} />}
           </Card>
 
 
