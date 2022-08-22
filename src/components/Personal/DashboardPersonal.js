@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from 'react';
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -18,7 +19,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function DashboardPersonal() {
+function DashboardPersonal( {points} ) 
+{
+  const [date, setMonth] = useState(new Date());
 
   const data = [
     { year: "1", value: 200 },
@@ -26,6 +29,8 @@ function DashboardPersonal() {
     { year: "1", value: 600 },
     { year: "1", value: 800 },
   ];
+  var month= ["January","February","March","April","May","June","July",
+"August","September","October","November","December"];
 
   const data2 = [
     {
@@ -97,7 +102,7 @@ function DashboardPersonal() {
           style={{ backgroundColor: "#ADD8E6", height: "10vh" }}
         >
           <Typography gutterBottom variant="subtitle1">
-          <h2>Your Scoreboard July</h2>
+          <h2>Your Scoreboard {month[date.getMonth()]}</h2>
           </Typography>
         </Grid>
         {/*
@@ -113,6 +118,13 @@ function DashboardPersonal() {
           lg={12}
           style={{ backgroundColor: "white", height: "10vh" }}
         >
+          <div class="points">
+            <strong>
+              <p>{month[date.getMonth()]} Progress</p>
+              <p>{points} Points</p>
+              <p>500 KG Carbon Saved</p>
+            </strong>
+          </div>
         </Grid>
 
         {/*
@@ -122,7 +134,7 @@ function DashboardPersonal() {
     
         */}
         <Grid item xs={12} md={12} lg={12} sm container>
-          <Grid item xs={6} md={6} lg={6} style={{paddingTop:'50px'}}>
+          <Grid item xs={6} md={6} lg={6} style={{paddingTop:'120px'}}>
             <ResponsiveContainer height={350}>
               <LineChart
                 width={500}
@@ -136,7 +148,7 @@ function DashboardPersonal() {
                   stroke="rgb(173, 216, 230)"
                   dot={false}
                 />
-                <XAxis tick={false} label="Month of July" />
+                <XAxis tick={false} label= { "Month of " + month[date.getMonth()]} />
                 <YAxis tick={false} label="Points" />
               </LineChart>
             </ResponsiveContainer>
@@ -155,14 +167,14 @@ function DashboardPersonal() {
         
               
           </Grid>
-          <ResponsiveContainer width="95%" height="63%">
+          <ResponsiveContainer width="95%" height="55%">
             <BarChart
               layout="vertical"
               width={500}
               height={300}
               data={data2}
               margin={{
-                top: 5,
+                top: 10,
                 right: 30,
                 left: 20,
                 bottom: 5,
@@ -178,12 +190,12 @@ function DashboardPersonal() {
               <Bar dataKey="Use Public Transporation" fill="red" />
               <Bar dataKey="Cycle" fill="#e7b859" />
               <Bar dataKey="Vegan Meal" fill="#92cbdf" />
-              <Bar dataKey="Vegetarian meal" fill="#82ca9d" />
-              <Bar dataKey="Air-dry clothes" fill="#8884d8" />
-              <Bar dataKey="Buy pre-owned item" fill="#82ca9d" />
-              <Bar dataKey="Avoid Single Use Plastic" fill="#8884d8" />
-              <Bar dataKey="Avoid Food Waster" fill="#82ca9d" />
-              <Bar dataKey="Carbon Offset" fill="#8884d8" />
+              <Bar dataKey="Vegetarian meal" fill="green" />
+              <Bar dataKey="Air-dry clothes" fill="orange" />
+              <Bar dataKey="Buy pre-owned item" fill="#ad325d" />
+              <Bar dataKey="Avoid Single Use Plastic" fill="#324dad" />
+              <Bar dataKey="Avoid Food Waster" fill="#32ad84" />
+              <Bar dataKey="Carbon Offset" fill="brown" />
             </BarChart>
         </ResponsiveContainer>
         </Grid>
