@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 function Badges() {
   return (
     <div>
-      <h3>Badges</h3>
       <div style={{padding:"8px"}}>
       <Grid container direction="row" spacing={1}>
         <Grid item xs={6} md={8} lg={8}>

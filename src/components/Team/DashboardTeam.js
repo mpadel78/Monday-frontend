@@ -10,12 +10,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
-import { deepOrange, green, deepPurple, blueGrey } from "@mui/material/colors";
+import { green} from "@mui/material/colors";
 
 function DashboardTeam() {
 
   const [date, setMonth] = useState(new Date());
-  const [points, setPoints] = useState(0);
 
   var month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];

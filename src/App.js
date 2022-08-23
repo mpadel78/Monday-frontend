@@ -12,8 +12,9 @@ import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
 
 function App() {
-  const [view, setView] = useState("Personal");
-  const [points, setPoints] = useState(0)
+  const [view, setView] = useState("Personal Sustainability Scoreboard");
+  const [carbon, setCarbon] = useState(0);
+  const [check, setCheck] = useState(false);
 
   const name = "Jessie";
 
@@ -21,8 +22,8 @@ function App() {
     e.preventDefault();
     console.log("The link was clicked.");
 
-    if (view == "Teams") setView("Personal");
-    else setView("Teams");
+    if (view === "Team Sustainability Scoreboard") setView("Personal Sustainability Scoreboard");
+    else setView("Team Sustainability Scoreboard");
   };
 
   return (
@@ -30,18 +31,18 @@ function App() {
       <Card>
       <div class="header">
         <h2>Welcome Back, {name}!</h2>
-        <div class="btn-container">
-          <Button onClick={handleClick} class="btn-team">
-            <strong>
-              {`Switch to ${view == "Teams" ? <DashboardPersonal points={points} /> : "Teams"}`}
-            </strong>
-          </Button>
-        </div>
       </div>
       </Card>
+      <div class="btn-container">
+          <Button color={Button.colors.POSITIVE} onClick={handleClick} class="btn-team">
+            <strong>
+              {`${view === "Team Sustainability Scoreboard" ? "Personal Sustainability Scoreboard" : "Team Sustainability Scoreboard"}`}
+            </strong>
+          </Button>
+      </div>
       <div style={{padding:'13px'}}>
         <Card variant="outlined">
-          {view == "Teams" ? <br /> : <Badges />}
+          {view === "Team Sustainability Scoreboard" ? <br /> : <Badges />}
         </Card>
       </div>
       <Grid container spacing={2}>
@@ -60,7 +61,7 @@ function App() {
             variant="outlined"
             style={{ height: "100vh", overflowY: "auto" }}
           >
-            {view == "Teams" ? <Mascot /> : <Tasks points={points} setPoints={setPoints} />}
+            {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} setCheck={setCheck} />}
           </Card>
           <div style={{padding:'30px 0px'}}>
             <Card variant="outlined">
@@ -82,10 +83,8 @@ function App() {
           }}
         >
           <Card style={{ padding:'0px 5px' }} variant="outlined">
-            {view == "Teams" ? <DashboardTeam /> : <DashboardPersonal points={points} />}
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam /> : <DashboardPersonal carbon={carbon} check={check} />}
           </Card>
-
-
         </Grid>
       </Grid>
     </div>
