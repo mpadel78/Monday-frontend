@@ -55,6 +55,17 @@
     display: inline-block;
   }
 
+  .points {
+    position: relative;
+    text-align: left;
+    padding:13px;
+    left: 60px;
+    width: 21%;
+    border: 3px groove;
+    border-radius: 10%;
+
+  } 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
