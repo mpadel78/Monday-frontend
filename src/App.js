@@ -41,7 +41,7 @@ function App() {
           </Button>
       </div>
       <div style={{padding:'13px'}}>
-        <Card variant="outlined">
+        <Card variant="outlined" style={{ width: "100vw", overflowX: "auto" }}>
           {view === "Team Sustainability Scoreboard" ? <br /> : <Badges />}
         </Card>
       </div>
