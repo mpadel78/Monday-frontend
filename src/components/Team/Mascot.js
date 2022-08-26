@@ -18,7 +18,7 @@ function Mascot({carbon}) {
           </strong>
         </div>
       <div>
-        <img src="mascot.jpg" alt="mascot" width="400" height="500"></img>
+        <img src="mascot.jpg" alt="mascot" width="400" height="480"></img>
         <h3>Help our greener habits 
           <br/>
         mascot by completing

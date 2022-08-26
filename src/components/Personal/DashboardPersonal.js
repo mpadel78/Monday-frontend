@@ -33,37 +33,23 @@ function DashboardPersonal( {carbon ,check } )
   const data2 = [
     {
       name: 'Week 1',
-      Recycle: 80,
-      Carpool: 80,
-      "Use Public Transporation": 80,
-      Cycle:80,
-      "Vegan Meal":80,
-      "Vegetarian meal":80,
-      "Air-dry clothes": 80,
-      "Buy pre-owned item": 80,
-      "Avoid Single Use Plastic": 80,
-      "Avoid Food Waster": 80,
-      "Carbon Offset": 80,
+      Recycle: 10,
+      Carpool: 2,
+      "Use Public Transporation": 8,
+      Cycle:0,
+      "Vegan Meal":7,
+      "Vegetarian meal":24,
+      "Air-dry clothes": 4,
+      "Buy pre-owned item": 19,
+      "Avoid Single Use Plastic": 12,
+      "Avoid Food Waster": 2,
+      "Carbon Offset": 16,
     },
   ];
 
   return (
     <>
       <Grid container direction="row" spacing={1}>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          lg={12}
-          style={{ backgroundColor: "#ADD8E6", height: "10vh" }}
-        >
-          <Typography gutterBottom variant="subtitle1">
-          <h2>Your Scoreboard {month[date.getMonth()]}</h2>
-          </Typography>
-        </Grid>
-      
-         
-
             {check ? (
               <>  
             {/*
@@ -94,7 +80,7 @@ function DashboardPersonal( {carbon ,check } )
         
             */}
         <Grid item xs={12} md={12} lg={12} sm container>
-              <Grid item xs={6} md={6} lg={6} style={{paddingTop:'120px'}}>
+              <Grid item xs={6} md={6} lg={6} style={{padding:'95px 0px'}}>
                 <ResponsiveContainer height={350}>
                   <LineChart
                     width={500}
