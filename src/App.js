@@ -40,10 +40,15 @@ function App() {
             </strong>
           </Button>
       </div>
-      <div style={{padding:'13px'}}>
-        <Card variant="outlined" style={{ width: "100vw", overflowX: "auto" }}>
-          {view === "Team Sustainability Scoreboard" ? <br /> : <Badges />}
-        </Card>
+      <div>
+        {view === "Team Sustainability Scoreboard" ? <></> : 
+        <div style={{padding:'13px'}}>
+          <Card variant="outlined" style={{ height:"50vh", width: "97vw", overflowX: "scroll", whiteSpace: 'nowrap' }}>
+            <Badges />
+          </Card>
+        </div>
+        }
+       
       </div>
       <Grid container spacing={2}>
         <Grid
