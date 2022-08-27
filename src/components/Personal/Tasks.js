@@ -35,8 +35,6 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
         <Paper
           sx={{
             p: 2,
-            margin: "auto",
-
             flexGrow: 1,
             height: "100%",
             margin: "2vh",
