@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
-function Badges() 
+function Badges({ carbon }) 
 {
   const img = [
     "treehugger_badgeimage.png",
@@ -37,17 +37,28 @@ function Badges()
               md={5}
               lg={10}
             >
+     {(carbon >= 385) ?
+          <>         
       {badges.map((data, idx) => (
           <> 
-                <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
-                  <img src={data.img} alt="mascot" width="150" height="150"></img>
-                  <h2 style={{color:'green'}}>{data.name}</h2>
-                  <strong><p>{data.got} Carbon Saved</p></strong>
-                  <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name}. Save {data.need} kg more of carbon to unlock the </span>
+          
+          <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                  <img src={data.img[idx]} alt="mascot" width="150" height="150"></img>
+                  <h2 style={{color:'green'}}>{data.name[idx]}</h2>
+                  <strong><p>{data.got[idx]} Carbon Saved</p></strong>
+                  <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name[idx]}. Save {data.need[idx]} kg more of carbon to unlock the </span>
                   <span>next badge.</span>
-                </Card>
-          </>     
-      ))} 
+          </Card>
+          </> 
+          ))} 
+          </>
+          :
+          <>
+          <span style={{ fontSize:"30px"}}> Save 385 kg of CO2 to earn your first badge</span>
+          
+          </> 
+      }  
+     
       </Grid>
           </Grid>
     </div>
