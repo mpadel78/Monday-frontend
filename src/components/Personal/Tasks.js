@@ -3,9 +3,11 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "monday-ui-react-core/dist/Button";
-import "monday-ui-react-core/dist/main.css"
+import "monday-ui-react-core/dist/main.css";
+import {postUserActivity} from "../../services/userService";
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
+
 
 export default function Tasks( {carbon, setCarbon, setCheck } ) {
   const tasks = [
@@ -21,9 +23,18 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
     { name: "Airdrying clothes", points: 2.35, color: colors[2]},
   ];
 
-  const submitTask = () => {
+  const submitTask = (points, activity) => {
+    let body = {
+        userId: "2234-2234-2234-2234",
+        Activity: activity,
+        Carbon_Savings: points,
+        TeamId: "3345-3345-3345-3345",
+        AccountId: "3456-3456-3456-3456"
+    };
+
+    postUserActivity(body);
     setCheck(true);
-    setCarbon(carbon + 80);
+    setCarbon(carbon + points);
     console.log(carbon);
   }
 
@@ -59,7 +70,7 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                <Button onClick={submitTask} component="label">
+                <Button onClick={() => submitTask(data.points, data.name)} component="label">
                   I did this today
                 </Button>
                 <br />
