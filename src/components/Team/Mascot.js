@@ -14,11 +14,11 @@ function Mascot({carbon}) {
         <div class="points2">
           <strong>
             <p>{month[date.getMonth()]} Progress</p>
-            <p class="pts">{carbon} KG Carbon Saved</p>
+            <p class="pts" style={{color:'green'}}>{carbon} KG Carbon Saved</p>
           </strong>
         </div>
       <div>
-        <img src="mascot.jpg" alt="mascot" width="400" height="500"></img>
+        <img src="mascot.jpg" alt="mascot" width="400" height="480"></img>
         <h3>Help our greener habits 
           <br/>
         mascot by completing

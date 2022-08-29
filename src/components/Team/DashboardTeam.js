@@ -10,7 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
-import { green} from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 function DashboardTeam() {
 
@@ -34,17 +34,7 @@ function DashboardTeam() {
   return (
     <>
       <Grid container direction="row" spacing={1}>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          lg={12}
-          style={{ backgroundColor: "#ADD8E6", height: "10vh" }}
-        >
-          <Typography gutterBottom variant="subtitle1">
-            <h2>Team Scoreboard {month[date.getMonth()]}</h2>
-          </Typography>
-        </Grid>
+        <h2>Team Scoreboard {month[date.getMonth()]}</h2>
         <Grid
           item
           xs={12}
@@ -91,7 +81,7 @@ function DashboardTeam() {
               </Table>
             </TableContainer>
           </Paper>
-        </Grid>
+      </Grid>
       </Grid>
     </>
   );

@@ -14,6 +14,7 @@ import "monday-ui-react-core/dist/main.css"
 function App() {
   const [view, setView] = useState("Personal Sustainability Scoreboard");
   const [carbon, setCarbon] = useState(0);
+  const [task, setTask] = useState("");
   const [check, setCheck] = useState(false);
 
   const name = "Jessie";
@@ -40,10 +41,15 @@ function App() {
             </strong>
           </Button>
       </div>
-      <div style={{padding:'13px'}}>
-        <Card variant="outlined" style={{ width: "100vw", overflowX: "auto" }}>
-          {view === "Team Sustainability Scoreboard" ? <br /> : <Badges />}
-        </Card>
+      <div>
+        {view === "Team Sustainability Scoreboard" ? <></> : 
+        <div style={{padding:'13px'}}>
+          <Card variant="outlined" style={{ height:"50vh", width: "97vw", overflowX: "scroll", whiteSpace: 'nowrap' }}>
+            <Badges carbon={carbon} />
+          </Card>
+        </div>
+        }
+       
       </div>
       <Grid container spacing={2}>
         <Grid
@@ -61,7 +67,7 @@ function App() {
             variant="outlined"
             style={{ height: "100vh", overflowY: "auto" }}
           >
-            {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} setCheck={setCheck} />}
+            {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} task={task} setTask={setTask} setCheck={setCheck} />}
           </Card>
           <div style={{padding:'30px 0px'}}>
             <Card variant="outlined">
@@ -83,7 +89,7 @@ function App() {
           }}
         >
           <Card style={{ padding:'0px 5px' }} variant="outlined">
-            {view === "Team Sustainability Scoreboard" ? <DashboardTeam /> : <DashboardPersonal carbon={carbon} check={check} />}
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
           </Card>
         </Grid>
       </Grid>
