@@ -5,8 +5,9 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "monday-ui-react-core/dist/Button";
 import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-import "monday-ui-react-core/dist/main.css"
+import 'react-toastify/dist/ReactToastify.css';
+import "monday-ui-react-core/dist/main.css";
+import {postUserActivity} from "../../services/userService";
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
@@ -24,16 +25,16 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     { name: "Airdrying clothes", points: 2.35, color: colors[2]},
   ];
 
-// UseEffect to update the carbon saved in the backend if carbon saved changes on frontend 
-useEffect(() => {
-  
-  // TODO:1 Place API post call sending the updated carbon saved here 
-
-  console.log("Carbon updated")
-}, [carbon])
-
-
   const submitTask = (e) => {
+    let body = {
+        userId: "2234-2234-2234-2234",
+        Activity: e.name,
+        Carbon_Savings: e.points,
+        TeamId: "3345-3345-3345-3345",
+        AccountId: "3456-3456-3456-3456"
+    };
+
+    postUserActivity(body);
     setCheck(true);
 
     toast.success("You saved " + e + " performing this task!");
