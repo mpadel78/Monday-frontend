@@ -25,11 +25,11 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     { name: "Airdrying clothes", points: 2.35, color: colors[2]},
   ];
 
-  const submitTask = (points, activity) => {
+  const submitTask = (e) => {
     let body = {
         userId: "2234-2234-2234-2234",
-        Activity: activity,
-        Carbon_Savings: points,
+        Activity: e.name,
+        Carbon_Savings: e.points,
         TeamId: "3345-3345-3345-3345",
         AccountId: "3456-3456-3456-3456"
     };
