@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -17,35 +17,92 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function DashboardPersonal( {carbon ,check } ) 
+function DashboardPersonal( {carbon ,check, task } ) 
 {
   const [date, setMonth] = useState(new Date());
+  const [cp, setCp] = useState(0);
+  const [ec, setEc] = useState(0);
+  const [pt, setPt] = useState(0);
+  const [cycle, setCycle] = useState(0);
+  const [vm, setVm] = useState(0);
+  const [vm2, setVm2] = useState(0);
+  const [afw, setAfw] = useState(0);
+  const [recycle, setRecycle] = useState(0);
+  const [asp, setAsp] = useState(0);
+  const [ad, setAd] = useState(0);
+
 
   const data = [
-    { year: "1", value: 200 },
-    { year: "1", value: 500 },
-    { year: "1", value: 600 },
-    { year: "1", value: 800 },
+    { Week: "0", value: 0 },
+    { Week: "Week 1", value: carbon },
+    { Week: "Week 2", value: 0 },
+    { Week: "Week 3", value: 0 },
+    { Week: "Week 4", value: 0 },
   ];
   var month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
   const data2 = [
     {
-      name: 'Week 1',
-      Recycle: 10,
-      Carpool: 2,
-      "Use Public Transporation": 8,
-      Cycle:0,
-      "Vegan Meal":7,
-      "Vegetarian meal":24,
-      "Air-dry clothes": 4,
-      "Buy pre-owned item": 19,
-      "Avoid Single Use Plastic": 12,
-      "Avoid Food Waster": 2,
-      "Carbon Offset": 16,
+      name: 'Task Count',
+      "Carpool": cp,
+      "Use an electric car": ec,
+      "Use public transporation": pt,
+      "Cycle": cycle,
+      "Have a vegetarian meal": vm,
+      "Eat a vegan meal": vm2,
+      "Avoid food waste": afw,
+      "Recycle": recycle,
+      "Avoid single-use plastic": asp,
+      "Airdrying clothes": ad,
     },
   ];
+
+  useEffect(() => {
+   if (task === "Carpool")
+   {
+      setCp(cp + 1); 
+   }
+   else  if (task === "Use an electric car" )
+   {
+      setEc(ec +1); 
+   }
+   else if (task === "Use public transportation")
+   {
+      setPt(pt + 1);
+   }
+   else if (task ===  "Cycle")
+   {
+      setCycle(cycle + 1);
+   } 
+   else if (task ===  "Have a vegetarian meal" )
+   {
+      setVm(vm +1);
+   }
+   else if (task === "Eat a vegan meal")
+   {
+      setVm2 (vm2 + 1);
+   }
+   else if (task === "Avoid food waste")
+   {
+      setAfw(afw + 1);
+   }
+   else if (task === "Recycle")
+   {
+      setRecycle(recycle + 1);
+   }
+   else if (task === "Avoid single-use plastic" )
+   {
+      setAsp(asp + 1);
+   }
+   else if (task === "Airdrying clothes")
+   {
+      setAd(ad + 1);
+   }
+   else return 
+
+  }, [task])
+  
 
   return (
     <>
@@ -80,7 +137,7 @@ function DashboardPersonal( {carbon ,check } )
         
             */}
         <Grid item xs={12} md={12} lg={12} sm container>
-              <Grid item xs={6} md={6} lg={6} style={{padding:'95px 0px'}}>
+              <Grid item xs={6} md={6} lg={6} style={{padding:'64px 0px'}}>
                 <ResponsiveContainer height={350}>
                   <LineChart
                     width={500}
@@ -88,16 +145,20 @@ function DashboardPersonal( {carbon ,check } )
                     data={data}
                     margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
                   >
+                    <CartesianGrid strokeDasharray="3 3" />
                     <Line
+                      connectNulls
                       type="monotone"
                       dataKey="value"
-                      stroke="rgb(173, 216, 230)"
-                      dot={false}
+                      stroke="#8884d8" fill="#8884d8"
                     />
-                    <XAxis tick={false} label= { "Month of " + month[date.getMonth()]} />
-                    <YAxis tick={false} label="Points" />
+                    <XAxis/>
+                    <YAxis />
+                    
+                    <Tooltip />
                   </LineChart>
                 </ResponsiveContainer>
+                  <h3>{ "Month of " + month[date.getMonth()]}</h3>
               </Grid>
 
               <Grid item xs={6} md={6} lg={6}>
@@ -126,20 +187,19 @@ function DashboardPersonal( {carbon ,check } )
                 >
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis type="number" />
-                  <YAxis dataKey="name" type="category" scale="band" />
+                  <YAxis dataKey="name" type="category"  />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="Recycle" fill="#8884d8" />
-                  <Bar dataKey="Carpool" fill="#82ca9d" />
-                  <Bar dataKey="Use Public Transporation" fill="red" />
+                  <Bar dataKey="Carpool" fill="#8884d8" />
+                  <Bar dataKey="Use an electric car " fill="#82ca9d" />
+                  <Bar dataKey="Use public transporation" fill="red" />
                   <Bar dataKey="Cycle" fill="#e7b859" />
-                  <Bar dataKey="Vegan Meal" fill="#92cbdf" />
-                  <Bar dataKey="Vegetarian meal" fill="green" />
-                  <Bar dataKey="Air-dry clothes" fill="orange" />
-                  <Bar dataKey="Buy pre-owned item" fill="#ad325d" />
-                  <Bar dataKey="Avoid Single Use Plastic" fill="#324dad" />
-                  <Bar dataKey="Avoid Food Waster" fill="#32ad84" />
-                  <Bar dataKey="Carbon Offset" fill="brown" />
+                  <Bar dataKey="Have a vegetarian meal" fill="#92cbdf" />
+                  <Bar dataKey="Eat a vegan meal" fill="green" />
+                  <Bar dataKey="Avoid food waste" fill="orange" />
+                  <Bar dataKey="Recycle" fill="#ad325d" />
+                  <Bar dataKey="Avoid single-use plastic" fill="#324dad" />
+                  <Bar dataKey="Airdrying clothes" fill="#32ad84" />
                 </BarChart>
             </ResponsiveContainer> 
           </Grid>

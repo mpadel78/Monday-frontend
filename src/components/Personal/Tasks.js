@@ -1,18 +1,20 @@
 import React from "react";
+import { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "monday-ui-react-core/dist/Button";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "monday-ui-react-core/dist/main.css";
 import {postUserActivity} from "../../services/userService";
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
-
-export default function Tasks( {carbon, setCarbon, setCheck } ) {
+export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   const tasks = [
     { name: "Carpool", points: 1, color: colors[0]},
-    { name: "Use an electric car ", points: 2, color: colors[0]},
+    { name: "Use an electric car", points: 2, color: colors[0]},
     { name: "Use public transportation", points: 4, color: colors[0]},
     { name: "Cycle", points: 3, color: colors[0]},
     { name: "Have a vegetarian meal", points:4, color: colors[3]},
@@ -34,7 +36,12 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
 
     postUserActivity(body);
     setCheck(true);
-    setCarbon(carbon + points);
+
+    toast.success("You saved " + e + " performing this task!");
+
+    setTask(e.name); // set task name 
+    setCarbon(carbon + e.points); // update carbon saved based on task
+
     console.log(carbon);
   }
 
@@ -70,7 +77,7 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                <Button onClick={() => submitTask(data.points, data.name)} component="label">
+                <Button onClick={(e) => submitTask(data, e)} component="label">
                   I did this today
                 </Button>
                 <br />
