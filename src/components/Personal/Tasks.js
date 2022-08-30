@@ -4,7 +4,14 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css";
-import {postUserActivity} from "../../services/userService";
+import {
+    postUserActivity,
+    getSingleUserTotalPoints,
+    getSingleUserTotalPointsPerMonthByWeek,
+    getSingleUserTotalPointsPerYearByMonth,
+    getSingleUserTotalPointsPerWeekPerActivity,
+    getSingleUserTotalPointsYTDByActivity
+} from "../../services/userService";
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
@@ -25,10 +32,10 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
 
   const submitTask = (points, activity) => {
     let body = {
-        userId: "2234-2234-2234-2234",
+        userId: "3234-3234-3234-3234",
         Activity: activity,
         Carbon_Savings: points,
-        TeamId: "3345-3345-3345-3345",
+        TeamId: "2345-2345-2345-2345",
         AccountId: "3456-3456-3456-3456"
     };
 
@@ -37,6 +44,43 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
     setCarbon(carbon + points);
     console.log(carbon);
   }
+
+    const getSingleUserPoints = () => {
+        let userId = "2234-2234-2234-2234";
+
+        let userTotalPoints = getSingleUserTotalPoints(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsPerMonthByWeek = () => {
+        let userId = "2234-2234-2234-2234";
+
+        let userTotalPoints = getSingleUserTotalPointsPerMonthByWeek(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsPerYearByMonth = () => {
+        let userId = "2234-2234-2234-2234";
+
+        let userTotalPoints = getSingleUserTotalPointsPerYearByMonth(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsPerWeekPerActivity = () => {
+        let userId = "1234-1234-1234-1234";
+
+        let userTotalPoints = getSingleUserTotalPointsPerWeekPerActivity(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsYTDByActivity = () => {
+        let userId = "1234-1234-1234-1234";
+
+        let userTotalPoints = getSingleUserTotalPointsYTDByActivity(userId);
+        console.log(userTotalPoints);
+    }
+
+
 
   return (
     <div>
@@ -70,7 +114,8 @@ export default function Tasks( {carbon, setCarbon, setCheck } ) {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                <Button onClick={() => submitTask(data.points, data.name)} component="label">
+                {/*<Button onClick={() => submitTask(data.points, data.name)} component="label">*/}
+                  <Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">
                   I did this today
                 </Button>
                 <br />
