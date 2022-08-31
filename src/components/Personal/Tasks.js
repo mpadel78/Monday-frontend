@@ -44,10 +44,12 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
 
     console.log(carbon);
   }
-
+  
   return (
     <div>
       <h3>What did you do today?</h3>
+
+      <Button component="label">Login action for another day</Button>
 
       {tasks.map((data, idx) => (
         <Paper

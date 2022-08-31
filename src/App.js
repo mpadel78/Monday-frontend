@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Tasks from "./components/Personal/Tasks";
@@ -10,6 +10,8 @@ import "./App.css";
 import Badges from "./components/Personal/Badges";
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
+import  { db } from './Firebase/firebase1';
+import { doc, setDoc } from "firebase/firestore"; 
 
 function App() {
   const [view, setView] = useState("Personal Sustainability Scoreboard");
@@ -26,6 +28,17 @@ function App() {
     if (view === "Team Sustainability Scoreboard") setView("Personal Sustainability Scoreboard");
     else setView("Team Sustainability Scoreboard");
   };
+
+  //Plan B firebase setup
+   /* useEffect(() => {
+
+    Add a new document in collection "cities"
+  ``setDoc(doc(db, "Users", "user"), {
+ points: carbon, 
+});
+
+  }, [carbon])*/
+  
 
   return (
     <div class="App">
