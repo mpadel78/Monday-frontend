@@ -24,7 +24,6 @@ const [value, onChange] = useState(new Date());
           <p>Biking, 200 points</p>
           <p>Tree planting, 200 points</p>
         </div> 
-        <Button component="label">Record for a different day</Button>
     </div>
   )
 }

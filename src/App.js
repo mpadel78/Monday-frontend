@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Tasks from "./components/Personal/Tasks";
@@ -10,12 +10,17 @@ import "./App.css";
 import Badges from "./components/Personal/Badges";
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
+import Popups from "./components/Popups/Popups";
+import  { db } from './Firebase/firebase1';
+import { doc, setDoc } from "firebase/firestore"; 
 
 function App() {
   const [view, setView] = useState("Personal Sustainability Scoreboard");
   const [carbon, setCarbon] = useState(0);
   const [task, setTask] = useState("");
   const [check, setCheck] = useState(false);
+  const [badge, setBadge] = useState("");
+
 
   const name = "Jessie";
 
@@ -26,6 +31,17 @@ function App() {
     if (view === "Team Sustainability Scoreboard") setView("Personal Sustainability Scoreboard");
     else setView("Team Sustainability Scoreboard");
   };
+
+  //Plan B firebase setup
+   /* useEffect(() => {
+
+    Add a new document in collection "cities"
+  ``setDoc(doc(db, "Users", "user"), {
+ points: carbon, 
+});
+
+  }, [carbon])*/
+  
 
   return (
     <div class="App">
@@ -42,14 +58,14 @@ function App() {
           </Button>
       </div>
       <div>
+        <Popups trigger={true} name={badge} />
         {view === "Team Sustainability Scoreboard" ? <></> : 
         <div style={{padding:'13px'}}>
           <Card variant="outlined" style={{ height:"50vh", width: "97vw", overflowX: "scroll", whiteSpace: 'nowrap' }}>
-            <Badges carbon={carbon} />
+            <Badges carbon={carbon} setBadge={setBadge} />
           </Card>
         </div>
         }
-       
       </div>
       <Grid container spacing={2}>
         <Grid
