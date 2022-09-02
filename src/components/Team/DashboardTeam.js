@@ -34,7 +34,7 @@ function DashboardTeam() {
   return (
     <>
       <Grid container direction="row" spacing={1}>
-        <h2>Team Scoreboard {month[date.getMonth()]}</h2>
+        <h2 style={{marginLeft:"20px"}}>Team Scoreboard {month[date.getMonth()]}</h2>
         <Grid
           item
           xs={12}
