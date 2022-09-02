@@ -2,6 +2,8 @@ import React from "react";
 import {useState, useEffect} from 'react';
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import {getSingleUserTotalPoints} from "../../services/userService";
+
 
 import {
   BarChart, 

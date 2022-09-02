@@ -7,7 +7,14 @@ import Button from "monday-ui-react-core/dist/Button";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "monday-ui-react-core/dist/main.css";
-import {postUserActivity} from "../../services/userService";
+import {
+    postUserActivity,
+    getSingleUserTotalPoints,
+    getSingleUserTotalPointsPerMonthByWeek,
+    getSingleUserTotalPointsPerYearByMonth,
+    getSingleUserTotalPointsPerWeekPerActivity,
+    getSingleUserTotalPointsYTDByActivity
+} from "../../services/userService";
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
@@ -44,7 +51,44 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
 
     console.log(carbon);
   }
-  
+
+    const getSingleUserPoints = () => {
+        let userId = "2234-2234-2234-2234";
+
+        let userTotalPoints = getSingleUserTotalPoints(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsPerMonthByWeek = () => {
+        let userId = "2234-2234-2234-2234";
+
+        let userTotalPoints = getSingleUserTotalPointsPerMonthByWeek(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsPerYearByMonth = () => {
+        let userId = "2234-2234-2234-2234";
+
+        let userTotalPoints = getSingleUserTotalPointsPerYearByMonth(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsPerWeekPerActivity = () => {
+        let userId = "1234-1234-1234-1234";
+
+        let userTotalPoints = getSingleUserTotalPointsPerWeekPerActivity(userId);
+        console.log(userTotalPoints);
+    }
+
+    const UserTotalPointsYTDByActivity = () => {
+        let userId = "1234-1234-1234-1234";
+
+        let userTotalPoints = getSingleUserTotalPointsYTDByActivity(userId);
+        console.log(userTotalPoints);
+    }
+
+
+
   return (
     <div>
       <h3>What did you do today?</h3>
@@ -79,7 +123,8 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                <Button onClick={(e) => submitTask(data, e)} component="label">
+                {/*<Button onClick={(e) => submitTask(data, e)} component="label">*/}
+                <Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">
                   I did this today
                 </Button>
                 <br />
