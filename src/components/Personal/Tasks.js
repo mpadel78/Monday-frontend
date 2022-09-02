@@ -16,6 +16,16 @@ import {
     getSingleUserTotalPointsYTDByActivity
 } from "../../services/userService";
 
+import {
+    GetTeamsPoints,
+    GetTeamWeeklyStats,
+    getSingleTeamMonthlyStats,
+    getUserLeaderboardMonthlyStats,
+    getUserLeaderboardYearlyStats,
+    getTeamLeaderboardMonthlyStats,
+    getTeamLeaderboardYearlyStats
+} from "../../services/teamService";
+
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
 export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
@@ -88,6 +98,48 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     }
 
 
+    const GetTeamsPointsFunc = () => {
+        let SeparateTeamsResults = GetTeamsPoints();
+        console.log(SeparateTeamsResults);
+    }
+
+    const GetTeamWeeklyStatsFunc = () => {
+        let teamId = "3345-3345-3345-3345";
+        let SeparateTeamsResults = GetTeamWeeklyStats(teamId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getSingleTeamMonthlyStatsFunc = () => {
+        let teamId = "3345-3345-3345-3345";
+        let SeparateTeamsResults = getSingleTeamMonthlyStats(teamId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getUserLeaderboardMonthlyStatsFunc = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getUserLeaderboardMonthlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getUserLeaderboardYearlyStatsFunct = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getUserLeaderboardYearlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getTeamLeaderboardMonthlyStatsFunc = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getTeamLeaderboardMonthlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getTeamLeaderboardYearlyStatsFunct = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getTeamLeaderboardYearlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+
 
   return (
     <div>
@@ -122,7 +174,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
                 {/*<Button onClick={(e) => submitTask(data, e)} component="label">*/}
-                <Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">
+                <Button onClick={() => getTeamLeaderboardMonthlyStatsFunc()} component="label">
                   I did this today
                 </Button>
                 <br />
