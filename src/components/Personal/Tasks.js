@@ -123,8 +123,8 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                {/*<Button onClick={(e) => submitTask(data, e)} component="label">*/}
-                <Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">
+                <Button onClick={(e) => submitTask(data, e)} component="label">
+                {/*<Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">*/}
                   I did this today
                 </Button>
                 <br />
