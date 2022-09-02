@@ -12,7 +12,7 @@ function Mascot({carbon}) {
 
 useEffect(() => {
   
-  if (carbon > 150 && carbon < 385)
+  if (carbon >= 150 && carbon < 385)
   {
     setStatus("Ok");
   }
@@ -44,7 +44,7 @@ console.log(status)
         {(status.includes("Ok")) ? (
         <>
 
-          <img src="bad2.jpg" alt="mascot" width="400" height="480" />
+          <img src="bad2.jpg" alt="mascot-b2" width="400" height="480" />
           <h3>Help our greener habits 
           <br/>
           mascot by completing
@@ -54,7 +54,7 @@ console.log(status)
         </>
         ) : (status.includes("Good")) ? (
         <>
-          <img src="mascot.jpg" alt="mascot" width="400" height="480" />
+          <img src="mascot.jpg" alt="mascot-g" width="400" height="480" />
           <h3>Keep up the good work!
           <br/> 
           Your team saved 400 kg more 
@@ -65,7 +65,7 @@ console.log(status)
         ) :  (status.includes("Excellent")) ? (
         <>
 
-          <img src="good2.jpg" alt="mascot" width="400" height="480" />
+          <img src="good2.jpg" alt="mascot-g2" width="400" height="480" />
           
           <h3>Keep up the good work!
           <br/> 
@@ -76,7 +76,7 @@ console.log(status)
         </>
         ) : (
           <>
-          <img src="bad.jpg" alt="mascot" width="400" height="480"></img>
+          <img src="bad.jpg" alt="mascot-b" width="400" height="480"></img>
             <h3>Help our greener habits 
               <br/>
             mascot by completing

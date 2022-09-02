@@ -1,8 +1,9 @@
 import React,{useEffect,useState} from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import Popups from "../Popups/Popups";
 
-function Badges({ carbon }) 
+function Badges({ carbon, setBadge }) 
 
 {
   const [status, setStatus] = useState("0");
@@ -87,6 +88,7 @@ function Badges({ carbon })
             >
      {(status.includes("1")) ? (
           <div>  
+            <Popups name={badges[1].name} />
             {badges.slice(0,1).map((data) =>       
               <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                           <img src={data.img} alt="mascot" width="150" height="150"></img>
@@ -194,10 +196,10 @@ function Badges({ carbon })
                                       )}
                                     </div>
                                     ) : (
-          <>
+          <div style={{textAlign:"center", margin:"90px 0px"}}>
           <span style={{ fontSize:"30px"}}> Save 385 kg of CO2 to earn your first badge</span>
           
-          </> 
+          </div> 
       )
       }  
      

@@ -10,6 +10,7 @@ import "./App.css";
 import Badges from "./components/Personal/Badges";
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
+import Popups from "./components/Popups/Popups";
 import  { db } from './Firebase/firebase1';
 import { doc, setDoc } from "firebase/firestore"; 
 
@@ -18,6 +19,8 @@ function App() {
   const [carbon, setCarbon] = useState(0);
   const [task, setTask] = useState("");
   const [check, setCheck] = useState(false);
+  const [badge, setBadge] = useState("");
+
 
   const name = "Jessie";
 
@@ -55,14 +58,14 @@ function App() {
           </Button>
       </div>
       <div>
+        <Popups trigger={true} name={badge} />
         {view === "Team Sustainability Scoreboard" ? <></> : 
         <div style={{padding:'13px'}}>
           <Card variant="outlined" style={{ height:"50vh", width: "97vw", overflowX: "scroll", whiteSpace: 'nowrap' }}>
-            <Badges carbon={carbon} />
+            <Badges carbon={carbon} setBadge={setBadge} />
           </Card>
         </div>
         }
-       
       </div>
       <Grid container spacing={2}>
         <Grid
