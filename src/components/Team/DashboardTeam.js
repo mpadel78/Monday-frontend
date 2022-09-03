@@ -2,7 +2,6 @@ import React from "react";
 import {useState} from 'react';
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
@@ -54,7 +53,7 @@ function DashboardTeam() {
          */}
 
         <Grid item xs={12}>
-          <Paper style={{ width: "90%", margin: "3vw" }}>
+          <Paper style={{ width: "90%", padding:"12px 35px" }}>
             <TableContainer>
               <Table>
                 <TableHead style={{ backgroundColor: `${green[300]}` }}>
