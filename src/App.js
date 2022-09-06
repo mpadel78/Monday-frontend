@@ -32,6 +32,8 @@ function App() {
     else setView("Team Sustainability Scoreboard");
   };
 
+  
+
   //Plan B firebase setup
    /* useEffect(() => {
 
@@ -85,11 +87,6 @@ function App() {
           >
             {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} task={task} setTask={setTask} setCheck={setCheck} />}
           </Card>
-          <div style={{padding:'30px 0px'}}>
-            <Card variant="outlined">
-              <Activities />
-            </Card>
-          </div>
          
         </Grid>
         <Grid
@@ -104,8 +101,8 @@ function App() {
             paddingRight: "10px",
           }}
         >
-          <Card style={{ padding:'0px 5px' }} variant="outlined">
-            {view === "Team Sustainability Scoreboard" ? <DashboardTeam /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
+          <Card style={{ padding:'0px 3px' }} variant="outlined">
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
           </Card>
         </Grid>
       </Grid>
