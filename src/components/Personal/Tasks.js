@@ -17,6 +17,16 @@ import {
     getSingleUserTotalPointsPerWeekPerActivity,
     getSingleUserTotalPointsYTDByActivity
 } from "../../services/userService";
+import {
+    GetTeamsPoints,
+    GetTeamWeeklyStats,
+    getSingleTeamMonthlyStats,
+    getUserLeaderboardMonthlyStats,
+    getUserLeaderboardYearlyStats,
+    getTeamLeaderboardMonthlyStats,
+    getTeamLeaderboardYearlyStats
+} from "../../services/teamService";
+import {getUserDetailsMAPI, getTeamDetailsMAPI} from "../../services/mondayService"
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
@@ -104,8 +114,56 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     }
 
 
+    const GetTeamsPointsFunc = () => {
+        let SeparateTeamsResults = GetTeamsPoints();
+        console.log(SeparateTeamsResults);
+    }
 
-  return (
+    const GetTeamWeeklyStatsFunc = () => {
+        let teamId = "3345-3345-3345-3345";
+        let SeparateTeamsResults = GetTeamWeeklyStats(teamId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getSingleTeamMonthlyStatsFunc = () => {
+        let teamId = "3345-3345-3345-3345";
+        let SeparateTeamsResults = getSingleTeamMonthlyStats(teamId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getUserLeaderboardMonthlyStatsFunc = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getUserLeaderboardMonthlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getUserLeaderboardYearlyStatsFunct = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getUserLeaderboardYearlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getTeamLeaderboardMonthlyStatsFunc = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getTeamLeaderboardMonthlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+    const getTeamLeaderboardYearlyStatsFunct = () => {
+        let accountId = "3456-3456-3456-3456";
+        let SeparateTeamsResults = getTeamLeaderboardYearlyStats(accountId);
+        console.log(SeparateTeamsResults);
+    }
+
+
+    const mondayUserTest = () => {
+      let values = getUserDetailsMAPI();
+        console.log(values);
+    }
+
+
+
+    return (
     <div>
       <h3>What did you do today?</h3>
 

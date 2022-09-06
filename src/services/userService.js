@@ -45,5 +45,5 @@ export const getSingleUserTotalPointsYTDByActivity = async (userId) => {
     return axios.get(`http://mondayapiv2-env.eba-2dwymyer.us-east-2.elasticbeanstalk.com/getSingleUserTotalPointsYTDByActivity/${userId}`, {headers: {
             'content-type': 'application/json'
         }}
-    ).then(response =>  console.log(response.data));
+    ).then(response =>  response.data);
 };
