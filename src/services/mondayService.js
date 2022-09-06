@@ -17,7 +17,7 @@ export const getUserDetailsMAPI = async () => {
                         }
                     }`;
     //Need API key for testing locally, supposedly will work with logged in user data when deployed
-    //monday.setToken('subTokenHere');
+    //monday.setToken('');
     return monday.api(query).
     then(x =>  {let obj = {
         accountId:  x.account_id,
