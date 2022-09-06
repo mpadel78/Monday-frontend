@@ -56,6 +56,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   };
 
   const submitTask = (e) => {
+      mondayUserTest();
     let body = {
         userId: "2234-2234-2234-2234",
         Activity: e.name,
@@ -253,8 +254,8 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
               </Grid>
               <Grid item xs={12} md={12} lg={6} sm container>
                 <Grid item xs>
-                  {/*<Button onClick={(e) => submitTask(data, e)} component="label">*/}
-                  <Button onClick={() => mondayUserTest()} component="label">
+                  <Button onClick={(e) => submitTask(data, e)} component="label">
+                  {/*<Button onClick={() => mondayUserTest()} component="label">*/}
                     I did this today
                   </Button>
                   <br />
