@@ -63,7 +63,9 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     setTask(e.name); // set task name 
     setCarbon(carbon + e.points); // update carbon saved based on task
 
-    console.log(carbon);
+    console.log(body);
+
+    onChange(new Date());
   }
 
     const getSingleUserPoints = () => {

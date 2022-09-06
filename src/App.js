@@ -102,7 +102,7 @@ function App() {
           }}
         >
           <Card style={{ padding:'0px 3px' }} variant="outlined">
-            {view === "Team Sustainability Scoreboard" ? <DashboardTeam /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
           </Card>
         </Grid>
       </Grid>

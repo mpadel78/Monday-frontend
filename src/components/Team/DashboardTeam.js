@@ -11,7 +11,7 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import { green } from "@mui/material/colors";
 
-function DashboardTeam() {
+function DashboardTeam( {carbon}) {
 
   const [date, setMonth] = useState(new Date());
 
@@ -19,7 +19,7 @@ function DashboardTeam() {
 "August","September","October","November","December"];
 
   const scores = [
-    { user: "A", points: 100 },
+    { user: "You", points: carbon },
     { user: "B", points: 100 },
     { user: "C", points: 100 },
     { user: "D", points: 100 },
@@ -69,7 +69,7 @@ function DashboardTeam() {
                   {scores.map((res) => (
                     <TableRow>
                       <TableCell component="th" scope="rh">
-                        {`User ${res.user}`}
+                        {`${res.user}`}
                       </TableCell>
                       <TableCell align="center">{res.points}</TableCell>
                       <TableCell align="center">#</TableCell>

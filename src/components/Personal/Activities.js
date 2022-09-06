@@ -1,13 +1,12 @@
 import React from 'react'
 import {useState} from 'react';
 import Calendar from 'react-calendar';
-import Typography from "@mui/material/Typography";
 import 'react-calendar/dist/Calendar.css';
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
 import "../../App.css";
 
-function Activities(value, onChange){
+function Activities( {value, onChange} ){
 
   return (
     <div style={{ padding:'10px'}}>
