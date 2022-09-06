@@ -15,7 +15,6 @@ import {
     getSingleUserTotalPointsPerWeekPerActivity,
     getSingleUserTotalPointsYTDByActivity
 } from "../../services/userService";
-
 import {
     GetTeamsPoints,
     GetTeamWeeklyStats,
@@ -25,6 +24,7 @@ import {
     getTeamLeaderboardMonthlyStats,
     getTeamLeaderboardYearlyStats
 } from "../../services/teamService";
+import {getUserDetailsMAPI, getTeamDetailsMAPI} from "../../services/mondayService"
 
 const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
 
@@ -140,8 +140,14 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     }
 
 
+    const mondayUserTest = () => {
+      let values = getUserDetailsMAPI();
+        console.log(values);
+    }
 
-  return (
+
+
+    return (
     <div>
       <h3>What did you do today?</h3>
 
@@ -175,8 +181,8 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
             </Grid>
             <Grid item xs={12} md={12} lg={6} sm container>
               <Grid item xs>
-                <Button onClick={(e) => submitTask(data, e)} component="label">
-                {/*<Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">*/}
+                  {/*<Button onClick={(e) => submitTask(data, e)} component="label">*/}
+                <Button onClick={() => mondayUserTest()} component="label">
                   I did this today
                 </Button>
                 <br />
