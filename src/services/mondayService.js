@@ -29,3 +29,20 @@ export const getUserDetailsMAPI = async () => {
     return obj;}
     );
 };
+
+export const getAllUsersNamesAndIds = async () => {
+    const query = `query {
+    users {
+        name
+            id
+        account {
+            name
+            id
+        }
+    }
+}`;
+    //Need API key for testing locally, supposedly will work with logged in user data when deployed
+    //monday.setToken('');
+
+    return monday.api(query).then(x =>x.data.users);
+};
