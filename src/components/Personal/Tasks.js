@@ -46,6 +46,15 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
 
   const [view2, setView2] = useState("")
   const [value, onChange] = useState(new Date());
+  const [list, setList] = useState({});
+
+  // MondayUsertest function 
+  useEffect(() => {
+    getUserDetailsMAPI()
+     .then((val) => {
+       setList(val);
+       console.log(list)})
+  }, [list.userId])
 
   const handleClick2 = (e) => {
     e.preventDefault();
@@ -56,15 +65,17 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   };
 
   const submitTask = (e) => {
-      mondayUserTest();
+      
     let body = {
-        userId: "2234-2234-2234-2234",
+        userId: list.userId,
         Activity: e.name,
         Date: value,
         Carbon_Savings: e.points,
-        TeamId: "3345-3345-3345-3345",
-        AccountId: "3456-3456-3456-3456"
+        TeamId: list.teamId,
+        AccountId: list.accountId
     };
+
+    getSingleUserPoints();
 
     postUserActivity(body);
     setCheck(true);
@@ -80,35 +91,35 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   }
 
     const getSingleUserPoints = () => {
-        let userId = "2234-2234-2234-2234";
+        let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPoints(userId);
         console.log(userTotalPoints);
     }
 
     const UserTotalPointsPerMonthByWeek = () => {
-        let userId = "2234-2234-2234-2234";
+        let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsPerMonthByWeek(userId);
         console.log(userTotalPoints);
     }
 
     const UserTotalPointsPerYearByMonth = () => {
-        let userId = "2234-2234-2234-2234";
+        let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsPerYearByMonth(userId);
         console.log(userTotalPoints);
     }
 
     const UserTotalPointsPerWeekPerActivity = () => {
-        let userId = "1234-1234-1234-1234";
+        let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsPerWeekPerActivity(userId);
         console.log(userTotalPoints);
     }
 
     const UserTotalPointsYTDByActivity = () => {
-        let userId = "1234-1234-1234-1234";
+        let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsYTDByActivity(userId);
         console.log(userTotalPoints);
@@ -121,47 +132,40 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     }
 
     const GetTeamWeeklyStatsFunc = () => {
-        let teamId = "3345-3345-3345-3345";
+        let teamId = list.teamId;
         let SeparateTeamsResults = GetTeamWeeklyStats(teamId);
         console.log(SeparateTeamsResults);
     }
 
     const getSingleTeamMonthlyStatsFunc = () => {
-        let teamId = "3345-3345-3345-3345";
+        let teamId = list.teamId;
         let SeparateTeamsResults = getSingleTeamMonthlyStats(teamId);
         console.log(SeparateTeamsResults);
     }
 
     const getUserLeaderboardMonthlyStatsFunc = () => {
-        let accountId = "3456-3456-3456-3456";
+        let accountId = list.accountId;
         let SeparateTeamsResults = getUserLeaderboardMonthlyStats(accountId);
         console.log(SeparateTeamsResults);
     }
 
     const getUserLeaderboardYearlyStatsFunct = () => {
-        let accountId = "3456-3456-3456-3456";
+        let accountId = list.accountId;
         let SeparateTeamsResults = getUserLeaderboardYearlyStats(accountId);
         console.log(SeparateTeamsResults);
     }
 
     const getTeamLeaderboardMonthlyStatsFunc = () => {
-        let accountId = "3456-3456-3456-3456";
+        let accountId = list.accountId;
         let SeparateTeamsResults = getTeamLeaderboardMonthlyStats(accountId);
         console.log(SeparateTeamsResults);
     }
 
     const getTeamLeaderboardYearlyStatsFunct = () => {
-        let accountId = "3456-3456-3456-3456";
+        let accountId = list.accountId;
         let SeparateTeamsResults = getTeamLeaderboardYearlyStats(accountId);
         console.log(SeparateTeamsResults);
     }
-
-
-    const mondayUserTest = () => {
-      let values = getUserDetailsMAPI();
-        console.log(values);
-    }
-
 
 
     return (
