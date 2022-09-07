@@ -75,7 +75,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
           userId: list.userId,
           Activity: e.name,
           Date: value,
-          Carbon_Savings: e.points,
+          Carbon_Savings: carbon + e.points,
           TeamId: list.teamId,
           AccountId: list.accountId
         }
@@ -96,13 +96,12 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     postUserActivity(body);
     setCheck(true);
 
-    console.log((getSingleUserTotalPoints(list.userId)));
+    console.log(carbon);
 
     setTask(e.name); // set task name 
     setCarbon(carbon + e.points); // update carbon saved based on task
 
     console.log(body);
-    console.log(carbon)
 
     if (view2 === "")
     {
