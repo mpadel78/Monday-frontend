@@ -44,9 +44,6 @@ function DashboardTeam( {carbon}) {
           <Button variant="outlined" component="label">
             This month
           </Button>
-          <Button variant="outlined" component="label">
-            YTD
-          </Button>
         </Grid>
 
         {/*Here starts the list users and points
