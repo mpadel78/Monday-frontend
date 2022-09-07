@@ -13,6 +13,15 @@ import "monday-ui-react-core/dist/main.css"
 import Popups from "./components/Popups/Popups";
 import  { db } from './Firebase/firebase1';
 import { doc, setDoc } from "firebase/firestore"; 
+import {getUserDetailsMAPI, getTeamDetailsMAPI} from "./services/mondayService";
+import {
+  postUserActivity,
+  getSingleUserTotalPoints,
+  getSingleUserTotalPointsPerMonthByWeek,
+  getSingleUserTotalPointsPerYearByMonth,
+  getSingleUserTotalPointsPerWeekPerActivity,
+  getSingleUserTotalPointsYTDByActivity
+} from "./services/userService";
 
 function App() {
   const [view, setView] = useState("Personal Sustainability Scoreboard");
@@ -20,9 +29,10 @@ function App() {
   const [task, setTask] = useState("");
   const [check, setCheck] = useState(false);
   const [badge, setBadge] = useState("");
+  const [list, setList] = useState({});
 
 
-  const name = "Jessie";
+  const [name, setName] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -32,8 +42,22 @@ function App() {
     else setView("Team Sustainability Scoreboard");
   };
 
-  
+  // set the name of the user's team name 
+ useEffect(() => {
+   getUserDetailsMAPI()
+    .then((val) => {
+      setList(val);
+      setName(list.teamName)
+      console.log(list)})
+ }, [name])
 
+ /* gets the user currently stored points 
+ useEffect(() => {
+  let userId = list.userId;
+  setCarbon(getSingleUserTotalPoints(userId));
+ }, []) */
+ 
+ 
   //Plan B firebase setup
    /* useEffect(() => {
 
