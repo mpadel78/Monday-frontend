@@ -65,8 +65,24 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   };
 
   const submitTask = (e) => {
-      
-    let body = {
+    let body ={};
+
+      if (carbon !== 0)
+      {
+        setCarbon(getSingleUserTotalPoints(list.userId));
+
+        body = {
+          userId: list.userId,
+          Activity: e.name,
+          Date: value,
+          Carbon_Savings: e.points,
+          TeamId: list.teamId,
+          AccountId: list.accountId
+        }
+      }
+      else 
+      {
+         body = {
         userId: list.userId,
         Activity: e.name,
         Date: value,
@@ -75,19 +91,24 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
         AccountId: list.accountId
     };
 
-    getSingleUserPoints();
+      }
 
     postUserActivity(body);
     setCheck(true);
 
-    toast.success("You saved " + e + " performing this task!");
+    console.log((getSingleUserTotalPoints(list.userId)));
 
     setTask(e.name); // set task name 
     setCarbon(carbon + e.points); // update carbon saved based on task
 
     console.log(body);
+    console.log(carbon)
 
-    onChange(new Date());
+    if (view2 === "")
+    {
+      onChange(new Date()); // set date back to current 
+    }
+    
   }
 
     const getSingleUserPoints = () => {
@@ -218,7 +239,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
               <Grid item xs>
                 <Button onClick={(e) => submitTask(data, e)} component="label">
                 {/*<Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">*/}
-                  I did this on that day
+                  Record for this date
                 </Button>
                 <br />
                 <br />
@@ -256,7 +277,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
                   Save {`${data.points}`} kg CO2 a day
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={12} lg={6} sm container>
+              <Grid item xs={5} md={12} lg={6} sm container>
                 <Grid item xs>
                   <Button onClick={(e) => submitTask(data, e)} component="label">
                   {/*<Button onClick={() => mondayUserTest()} component="label">*/}

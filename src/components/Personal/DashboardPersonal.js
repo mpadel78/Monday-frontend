@@ -137,12 +137,12 @@ function DashboardPersonal( {carbon ,check, task } )
             the graph and points
         
             */}
-        <Grid item xs={12} md={12} lg={12} sm container>
+        <Grid item xs={12} md={12} lg={12} sm container m style={{padding:'60px 0px'}}>
               <Grid item xs={6} md={6} lg={6} style={{padding:'64px 0px'}}>
                 <ResponsiveContainer height={350}>
                   <LineChart
-                    width={500}
-                    height={350}
+                    width={600}
+                    height={300}
                     data={data}
                     margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
                   >
