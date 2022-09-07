@@ -67,15 +67,15 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   const submitTask = (e) => {
       
     let body = {
-        userId: list.userId,
-        Activity: e.name,
-        Date: value,
+        userId: String(list.userId),
+        Activity: String(e.name),
+        // Date: value,
         Carbon_Savings: e.points,
-        TeamId: list.teamId,
-        AccountId: list.accountId
+        TeamId: String(list.teamId),
+        AccountId: String(list.accountId)
     };
 
-    getSingleUserPoints();
+    //getSingleUserPoints();
 
     postUserActivity(body);
     setCheck(true);

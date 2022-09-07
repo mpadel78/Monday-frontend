@@ -28,7 +28,6 @@ function Mascot({carbon}) {
 
   async function getUserMonthlyData(accountId){
     let output = await getUserLeaderboardMonthlyStats(accountId);
-    console.log(output);
     let sum = 0;
     output.map(x => sum += x.carbon_saving)
     return setAccountPoints(sum);
