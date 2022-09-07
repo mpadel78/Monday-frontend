@@ -2,7 +2,6 @@ import React from "react";
 import {useState} from 'react';
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
@@ -12,7 +11,7 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import { green } from "@mui/material/colors";
 
-function DashboardTeam() {
+function DashboardTeam( {carbon}) {
 
   const [date, setMonth] = useState(new Date());
 
@@ -20,7 +19,7 @@ function DashboardTeam() {
 "August","September","October","November","December"];
 
   const scores = [
-    { user: "A", points: 100 },
+    { user: "You", points: carbon },
     { user: "B", points: 100 },
     { user: "C", points: 100 },
     { user: "D", points: 100 },
@@ -54,7 +53,7 @@ function DashboardTeam() {
          */}
 
         <Grid item xs={12}>
-          <Paper style={{ width: "90%", margin: "3vw" }}>
+          <Paper style={{ width: "90%", padding:"12px 35px" }}>
             <TableContainer>
               <Table>
                 <TableHead style={{ backgroundColor: `${green[300]}` }}>
@@ -70,7 +69,7 @@ function DashboardTeam() {
                   {scores.map((res) => (
                     <TableRow>
                       <TableCell component="th" scope="rh">
-                        {`User ${res.user}`}
+                        {`${res.user}`}
                       </TableCell>
                       <TableCell align="center">{res.points}</TableCell>
                       <TableCell align="center">#</TableCell>

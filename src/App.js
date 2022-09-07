@@ -13,6 +13,15 @@ import "monday-ui-react-core/dist/main.css"
 import Popups from "./components/Popups/Popups";
 import  { db } from './Firebase/firebase1';
 import { doc, setDoc } from "firebase/firestore"; 
+import {getUserDetailsMAPI, getTeamDetailsMAPI} from "./services/mondayService";
+import {
+  postUserActivity,
+  getSingleUserTotalPoints,
+  getSingleUserTotalPointsPerMonthByWeek,
+  getSingleUserTotalPointsPerYearByMonth,
+  getSingleUserTotalPointsPerWeekPerActivity,
+  getSingleUserTotalPointsYTDByActivity
+} from "./services/userService";
 
 function App() {
   const [view, setView] = useState("Personal Sustainability Scoreboard");
@@ -20,9 +29,10 @@ function App() {
   const [task, setTask] = useState("");
   const [check, setCheck] = useState(false);
   const [badge, setBadge] = useState("");
+  const [list, setList] = useState({});
 
 
-  const name = "Jessie";
+  const [name, setName] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -32,6 +42,22 @@ function App() {
     else setView("Team Sustainability Scoreboard");
   };
 
+  // set the name of the user's team name 
+ useEffect(() => {
+   getUserDetailsMAPI()
+    .then((val) => {
+      setList(val);
+      setName(list.teamName)
+      console.log(list)})
+ }, [name])
+
+ /* gets the user currently stored points 
+ useEffect(() => {
+  let userId = list.userId;
+  setCarbon(getSingleUserTotalPoints(userId));
+ }, []) */
+ 
+ 
   //Plan B firebase setup
    /* useEffect(() => {
 
@@ -85,11 +111,6 @@ function App() {
           >
             {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} task={task} setTask={setTask} setCheck={setCheck} />}
           </Card>
-          <div style={{padding:'30px 0px'}}>
-            <Card variant="outlined">
-              <Activities />
-            </Card>
-          </div>
          
         </Grid>
         <Grid
@@ -104,8 +125,8 @@ function App() {
             paddingRight: "10px",
           }}
         >
-          <Card style={{ padding:'0px 5px' }} variant="outlined">
-            {view === "Team Sustainability Scoreboard" ? <DashboardTeam /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
+          <Card style={{ padding:'0px 3px' }} variant="outlined">
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
           </Card>
         </Grid>
       </Grid>
