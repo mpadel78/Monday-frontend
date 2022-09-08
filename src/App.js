@@ -87,7 +87,7 @@ function App() {
         <Popups trigger={true} name={badge} />
         {view === "Team Sustainability Scoreboard" ? <></> : 
         <div style={{padding:'13px'}}>
-          <Card variant="outlined" style={{ height:"45%", width: "98%", overflowX: "scroll", whiteSpace: 'nowrap' }}>
+          <Card variant="outlined" style={{ height:"45%", overflowX: "scroll", whiteSpace: 'nowrap' }}>
             <Badges carbon={carbon} setBadge={setBadge} />
           </Card>
         </div>
