@@ -71,7 +71,7 @@ useEffect(() => {
 
   return (
      <div>
-      <div style={{display:"flex",alignItems:'center',justifyContent:"center"}}>
+     <div style={{display:"flex",alignItems:'center',justifyContent:"center"}}>
         <div class="points2">
           <strong>
             <p>{month[date.getMonth()]} Progress</p>

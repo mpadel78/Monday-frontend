@@ -3,6 +3,9 @@ import {useState, useEffect} from 'react';
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import {getSingleUserTotalPoints} from "../../services/userService";
+import {
+    getSingleUserTotalPointsPerWeekPerActivity
+} from "../../services/userService";
 
 
 import {
@@ -18,7 +21,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function DashboardPersonal( {carbon ,check, task } ) 
+function DashboardPersonal( {carbon ,check, task, list } )
 {
   const [date, setMonth] = useState(new Date());
   const [cp, setCp] = useState(0);
@@ -31,9 +34,31 @@ function DashboardPersonal( {carbon ,check, task } )
   const [recycle, setRecycle] = useState(0);
   const [asp, setAsp] = useState(0);
   const [ad, setAd] = useState(0);
+  const [activityData, setActivityData] = useState();
+
+    async function getActivityData(){
+        let output = await getSingleUserTotalPointsPerWeekPerActivity(list.userId);
+        setCp(output["Carpool"]);
+        setEc(output["Use an electric car"]);
+        setPt(output["Use public transportation"]);
+        setCycle(output["Cycle"]);
+        setVm(output["Have a vegetarian meal"]);
+        setVm2(output["Eat a vegan meal"]);
+        setAfw(output["Avoid food waste"]);
+        setRecycle(output["Recycle"]);
+        setAsp(output["Avoid single-use plastic"]);
+        setAd(output["Airdrying clothes"]);
+
+        console.log(output);
+        return setActivityData(output);
+    };
+
+    useEffect(() => {
+        getActivityData();
+    }, [carbon])
 
 
-  const data = [
+    const data = [
     { Week: "0", value: 0 },
     { Week: "Week 1", value: carbon },
     { Week: "Week 2", value: 0 },
@@ -45,7 +70,7 @@ function DashboardPersonal( {carbon ,check, task } )
 
   const data2 = [
     {
-      name: 'Task Count',
+      name: 'Carbon Savings by Activity',
       "Carpool": cp,
       "Use an electric car": ec,
       "Use public transporation": pt,
@@ -60,9 +85,10 @@ function DashboardPersonal( {carbon ,check, task } )
   ];
 
   useEffect(() => {
+      console.log(carbon);
    if (task === "Carpool")
    {
-      setCp(cp + 1); 
+      setCp(cp + 1);
    }
    else  if (task === "Use an electric car" )
    {
