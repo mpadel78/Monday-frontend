@@ -38,7 +38,13 @@ export const getSingleUserTotalPointsPerWeekPerActivity = async (userId) => {
   return axios.get(`http://mondayapiv2-env.eba-2dwymyer.us-east-2.elasticbeanstalk.com/getSingleUserTotalPointsPerWeekPerActivity/${userId}`, {headers: {
       'content-type': 'application/json'
     }}
-  ).then(response =>  response.data);
+  ).then(response =>{
+      console.log(response.data);
+      let newObj = {};
+      response.data.map(x => {
+          newObj[x.activity_performed] =+ x.carbon_saving ? x.carbon_saving : 0;
+      });
+      return newObj});
 };
 //Returns amount of points for a single user YTD
 export const getSingleUserTotalPointsYTDByActivity = async (userId) => {
