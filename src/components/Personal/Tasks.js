@@ -53,7 +53,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     getUserDetailsMAPI()
      .then((val) => {
        setList(val);
-       console.log(list)})
+       })
   }, [list.userId])
 
   const handleClick2 = (e) => {
@@ -65,6 +65,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
 
   const submitTask = (e) => {
     let body ={};
+    UserTotalPointsPerWeekPerActivity();
 
     //Don't need set carbon, will create an API call to update carbon.
       if (carbon !== 0)
@@ -101,7 +102,6 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     setTask(e.name); // set task name 
     setCarbon(carbon + e.points); // update carbon saved based on task
 
-    console.log(carbon);
     console.log(body);
 
     if (view2 === "")
