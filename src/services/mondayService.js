@@ -18,8 +18,8 @@ export const getUserDetailsMAPI = async () => {
                     }`;
     //Need API key for testing locally, supposedly will work with logged in user data when deployed
     //monday.setToken('');
-    return monday.api(query).
-    then(x =>  {let obj = {
+    return monday.api(query)
+    .then(x =>  {let obj = {
         accountId:  x.account_id,
         accountName: x.data.me.account.name,
         userId: x.data.me.id,

@@ -71,16 +71,18 @@ useEffect(() => {
 
   return (
      <div>
+      <div style={{display:"flex",alignItems:'center',justifyContent:"center"}}>
         <div class="points2">
           <strong>
             <p>{month[date.getMonth()]} Progress</p>
             <p class="pts" style={{color:'green'}}>{accountPoints} KG Carbon Saved</p>
           </strong>
         </div>
+      </div>
         {(status.includes("Ok")) ? (
         <>
 
-          <img src="bad2.jpg" alt="mascot-b2" width="400" height="480" />
+          <img src="bad2.jpg" alt="mascot-b2" width="72%" height="70%" />
           <h3>Help our greener habits 
           <br/>
           mascot by completing
@@ -90,7 +92,7 @@ useEffect(() => {
         </>
         ) : (status.includes("Good")) ? (
         <>
-          <img src="mascot.jpg" alt="mascot-g" width="400" height="480" />
+          <img src="mascot.jpg" alt="mascot-g" width="72%" height="70%" />
           <h3>Help our greener habits
             <br/>
             mascot by completing
@@ -101,7 +103,7 @@ useEffect(() => {
         ) :  (status.includes("Excellent")) ? (
         <>
 
-          <img src="good2.jpg" alt="mascot-g2" width="400" height="480" />
+          <img src="good2.png" alt="mascot-g2" width="72%" height="70%" />
 
           <h3>Help our greener habits
             <br/>
@@ -112,7 +114,7 @@ useEffect(() => {
         </>
         ) : (
           <>
-          <img src="bad.jpg" alt="mascot-b" width="400" height="480"></img>
+          <img src="bad.jpg" alt="mascot-b" width="72%" height="70%"></img>
             <h3>Help our greener habits 
               <br/>
             mascot by completing

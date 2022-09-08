@@ -118,7 +118,7 @@ function DashboardPersonal( {carbon ,check, task } )
             */}
             <Grid
               item
-              xs={12}
+              xs={4}
               md={12}
               lg={12}
               style={{ backgroundColor: "white", height: "10vh" }}
@@ -137,12 +137,12 @@ function DashboardPersonal( {carbon ,check, task } )
             the graph and points
         
             */}
-        <Grid item xs={12} md={12} lg={12} sm container>
+        <Grid item xs={4} md={12} lg={12} sm container m style={{padding:'50px 0px'}}>
               <Grid item xs={6} md={6} lg={6} style={{padding:'64px 0px'}}>
-                <ResponsiveContainer height={350}>
+                <ResponsiveContainer height='82%' width='95%'>
                   <LineChart
-                    width={500}
-                    height={350}
+                    width={600}
+                    height={300}
                     data={data}
                     margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
                   >
@@ -173,11 +173,11 @@ function DashboardPersonal( {carbon ,check, task } )
                 <br />
 
               </Grid>
-              <ResponsiveContainer width="95%" height="55%">
+              <ResponsiveContainer width="88%" height="50%">
                 <BarChart
                   layout="vertical"
-                  width={500}
-                  height={300}
+                  width={300}
+                  height={200}
                   data={data2}
                   margin={{
                     top: 10,
