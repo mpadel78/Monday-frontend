@@ -88,9 +88,8 @@ function Badges({ carbon, setBadge })
             >
      {(status.includes("1")) ? (
           <div>  
-            <Popups name={badges[1].name} />
             {badges.slice(0,1).map((data) =>       
-              <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+              <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'20%', height:'90%'}}>
                           <img src={data.img} alt="mascot" width="150" height="150"></img>
                           <h2 style={{color:'green'}}>{data.name}</h2>
                           <strong><p>{data.got} Carbon Saved</p></strong>

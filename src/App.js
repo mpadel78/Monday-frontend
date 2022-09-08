@@ -87,7 +87,7 @@ function App() {
         <Popups trigger={true} name={badge} />
         {view === "Team Sustainability Scoreboard" ? <></> : 
         <div style={{padding:'13px'}}>
-          <Card variant="outlined" style={{ height:"50vh", width: "97vw", overflowX: "scroll", whiteSpace: 'nowrap' }}>
+          <Card variant="outlined" style={{ height:"45%", width: "98%", overflowX: "scroll", whiteSpace: 'nowrap' }}>
             <Badges carbon={carbon} setBadge={setBadge} />
           </Card>
         </div>
@@ -121,11 +121,11 @@ function App() {
           style={{
             textAlign: "center",
             backgroundColor: "gre",
-            height: "100vh",
+            height: "100%",
             paddingRight: "10px",
           }}
         >
-          <Card style={{ padding:'0px 3px' }} variant="outlined">
+          <Card style={{ padding:'0px 2px' }} variant="outlined">
             {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
           </Card>
         </Grid>

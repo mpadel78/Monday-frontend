@@ -28,7 +28,7 @@ import {
 } from "../../services/teamService";
 import {getUserDetailsMAPI, getTeamDetailsMAPI} from "../../services/mondayService"
 
-const colors = ['#6dc762','#92cbdf','#e7b859', '#c892df']
+const colors = ['#D6FFEB','#D6EAFF','#FFECD6', '#D7D6FF','#ECD6FF']
 
 export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   const tasks = [
@@ -40,7 +40,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     { name: "Eat a vegan meal", points: 5, color: colors[3]},
     { name: "Avoid food waste", points: 1, color: colors[3]},
     { name: "Recycle", points: 2, color: colors[1]},
-    { name: "Avoid single-use plastic", points:2, color: colors[2]},
+    { name: "Avoid single-use plastic", points:2, color: colors[4]},
     { name: "Airdrying clothes", points: 2.35, color: colors[2]},
   ];
 
@@ -58,7 +58,6 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
 
   const handleClick2 = (e) => {
     e.preventDefault();
-    console.log("The link was clicked.");
 
     if (view2 === "") setView2("Login Another Day");
     else setView2("");
@@ -72,23 +71,23 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
         setCarbon(getSingleUserTotalPoints(list.userId));
 
         body = {
-          userId: list.userId,
-          Activity: e.name,
+          userId: String(list.userId),
+          Activity: String(e.name),
           Date: value,
           Carbon_Savings: carbon + e.points,
-          TeamId: list.teamId,
-          AccountId: list.accountId
+          TeamId: String(list.teamId),
+          AccountId: String(list.accountId)
         }
       }
       else 
       {
          body = {
-        userId: list.userId,
-        Activity: e.name,
+        userId: String(list.userId),
+        Activity: String(e.name),
         Date: value,
         Carbon_Savings: e.points,
-        TeamId: list.teamId,
-        AccountId: list.accountId
+        TeamId: String(list.teamId),
+        AccountId: String(list.accountId)
     };
 
       }
@@ -96,11 +95,12 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     postUserActivity(body);
     setCheck(true);
 
-    console.log(carbon);
+    
 
     setTask(e.name); // set task name 
     setCarbon(carbon + e.points); // update carbon saved based on task
 
+    console.log(carbon);
     console.log(body);
 
     if (view2 === "")
@@ -234,7 +234,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
                 Save {`${data.points}`} kg CO2 a day
               </Typography>
             </Grid>
-            <Grid item xs={12} md={12} lg={6} sm container>
+            <Grid item xs={5} md={12} lg={6} sm container>
               <Grid item xs>
                 <Button onClick={(e) => submitTask(data, e)} component="label">
                 {/*<Button onClick={() => UserTotalPointsPerWeekPerActivity()} component="label">*/}
