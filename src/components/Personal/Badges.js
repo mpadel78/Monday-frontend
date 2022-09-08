@@ -20,52 +20,54 @@ function Badges({ carbon, setBadge })
     "gretathunberg_badge.png"
 
   ];
+
   const badges = [
-    { name: "Tree Hugger", description:"", got: 3, need:7 ,img: img[0]},
-    { name: "Eco-friend", description:"", got: 5, need: 6, img: img[1]},
-    { name: "Conscious Earthling", description:"", got: 10, need: 180, img: img[2]},
-    { name: "Planet Ally", description:"", got: 15, need: 100, img: img[3]},
-    { name: "Zero Waste Advocate", description:"",got: 20, need:200, img: img[4]},
-    { name: "Ocean Patrol", description:"", got: 30, need:312, img: img[5]},
-    { name: "Guardian of Reefs", description:"", got: 40, need: 406, img: img[6]},
-    { name: "Climate Fighter", description:"", got: 50, need:407, img: img[7]},
-    { name: "Greta Thunberg", description:"", got: 60, img: img[8]},
+    { name: "Tree Hugger", description:"", got: 385, need:7 ,img: img[0]},
+    { name: "Eco-friend", description:"", got: 389, need: 6, img: img[1]},
+    { name: "Conscious Earthling", description:"", got: 395, need: 180, img: img[2]},
+    { name: "Planet Ally", description:"", got: 575, need: 100, img: img[3]},
+    { name: "Zero Waste Advocate", description:"",got: 675, need:200, img: img[4]},
+    { name: "Ocean Patrol", description:"", got: 875, need:312, img: img[5]},
+    { name: "Guardian of Reefs", description:"", got: 1187, need: 406, img: img[6]},
+    { name: "Climate Fighter", description:"", got: 1593, need:407, img: img[7]},
+    { name: "Greta Thunberg", description:"", got: 2000, img: img[8]},
+  ];
 
     useEffect(() => {
   
-      if (carbon >=3 && carbon < 5)
+      if (carbon >=385 && carbon < 389)
       {
         setStatus("1");
       }
-      else if (carbon >= 5 && carbon < 10)
+      else if (carbon >= 389 && carbon < 395)
       {
         setStatus("2");
       }
-      else if (carbon >= 10 && carbon < 15)
+      else if (carbon >= 395 && carbon < 575)
       {
         setStatus("3");
       }
-      else if (carbon >= 15 && carbon < 20)
+      else if (carbon >= 575 && carbon < 675)
       {
         setStatus("4");        
       }
-      else if (carbon >= 20 && carbon < 30)
+      else if (carbon >= 675 && carbon < 875)
       {
         setStatus("5");
       }
-      else if (carbon >= 30 && carbon < 40)
+      else if (carbon >= 875 && carbon < 1187)
       {
         setStatus("6");
       }
-      else if (carbon >= 40 && carbon < 50)
+      else if (carbon >= 1187 && carbon < 1593)
       {
         setStatus("7");
       }
-      else if (carbon >= 50 && carbon < 60)
+      else if (carbon >= 1593 && carbon < 2000)
       {
         setStatus("8");
       }
-      else if (carbon >= 60)
+      else if (carbon >= 2000)
       {
         setStatus("9");
       }
@@ -73,10 +75,8 @@ function Badges({ carbon, setBadge })
       {
         
       }
-    
     }, [carbon])
     
-  ];
   return (
     <div>
       <Grid container direction="column" spacing={40}>
@@ -92,7 +92,7 @@ function Badges({ carbon, setBadge })
               <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'20%', height:'90%'}}>
                           <img src={data.img} alt="mascot" width="150" height="150"></img>
                           <h2 style={{color:'green'}}>{data.name}</h2>
-                          <strong><p>{data.got} Carbon Saved</p></strong>
+                          <strong><p>{data.got} Kg Carbon Saved</p></strong>
                           <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                           <span>next badge.</span>
               </Card>
@@ -104,7 +104,7 @@ function Badges({ carbon, setBadge })
               <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                           <img src={data.img} alt="mascot" width="150" height="150"></img>
                           <h2 style={{color:'green'}}>{data.name}</h2>
-                          <strong><p>{data.got} Carbon Saved</p></strong>
+                          <strong><p>{data.got} Kg Carbon Saved</p></strong>
                           <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                           <span>next badge.</span>
               </Card>
@@ -116,7 +116,7 @@ function Badges({ carbon, setBadge })
                 <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                             <img src={data.img} alt="mascot" width="150" height="150"></img>
                             <h2 style={{color:'green'}}>{data.name}</h2>
-                            <strong><p>{data.got} Carbon Saved</p></strong>
+                            <strong><p>{data.got} Kg Carbon Saved</p></strong>
                             <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                             <span>next badge.</span>
                 </Card>
@@ -128,7 +128,7 @@ function Badges({ carbon, setBadge })
                     <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                                 <img src={data.img} alt="mascot" width="150" height="150"></img>
                                 <h2 style={{color:'green'}}>{data.name}</h2>
-                                <strong><p>{data.got} Carbon Saved</p></strong>
+                                <strong><p>{data.got} Kg Carbon Saved</p></strong>
                                 <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                                 <span>next badge.</span>
                     </Card>
@@ -140,7 +140,7 @@ function Badges({ carbon, setBadge })
                         <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                                     <img src={data.img} alt="mascot" width="150" height="150"></img>
                                     <h2 style={{color:'green'}}>{data.name}</h2>
-                                    <strong><p>{data.got} Carbon Saved</p></strong>
+                                    <strong><p>{data.got} kg Carbon Saved</p></strong>
                                     <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                                     <span>next badge.</span>
                         </Card>
@@ -152,7 +152,7 @@ function Badges({ carbon, setBadge })
                             <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                                         <img src={data.img} alt="mascot" width="150" height="150"></img>
                                         <h2 style={{color:'green'}}>{data.name}</h2>
-                                        <strong><p>{data.got} Carbon Saved</p></strong>
+                                        <strong><p>{data.got} kg Carbon Saved</p></strong>
                                         <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                                         <span>next badge.</span>
                             </Card>
@@ -164,7 +164,7 @@ function Badges({ carbon, setBadge })
                                 <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                                             <img src={data.img} alt="mascot" width="150" height="150"></img>
                                             <h2 style={{color:'green'}}>{data.name}</h2>
-                                            <strong><p>{data.got} Carbon Saved</p></strong>
+                                            <strong><p>{data.got} kg Carbon Saved</p></strong>
                                             <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                                             <span>next badge.</span>
                                 </Card>
@@ -176,7 +176,7 @@ function Badges({ carbon, setBadge })
                                     <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                                                 <img src={data.img} alt="mascot" width="150" height="150"></img>
                                                 <h2 style={{color:'green'}}>{data.name}</h2>
-                                                <strong><p>{data.got} Carbon Saved</p></strong>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
                                                 <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                                                 <span>next badge.</span>
                                     </Card>
@@ -188,7 +188,7 @@ function Badges({ carbon, setBadge })
                                         <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
                                                     <img src={data.img} alt="mascot" width="150" height="150"></img>
                                                     <h2 style={{color:'green'}}>{data.name}</h2>
-                                                    <strong><p>{data.got} Carbon Saved</p></strong>
+                                                    <strong><p>{data.got} kg Carbon Saved</p></strong>
                                                     <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
                                                     <span>next badge.</span>
                                         </Card>

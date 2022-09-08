@@ -42,6 +42,14 @@ function App() {
     else setView("Team Sustainability Scoreboard");
   };
 
+  useEffect(() => {
+    if (carbon !== 0)
+    {
+      setCheck(true);
+    }
+
+}, [carbon])
+
   // set the name of the user's team name 
  useEffect(() => {
      getListData().then(x => setName(x.teamName));

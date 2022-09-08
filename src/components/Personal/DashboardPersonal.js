@@ -164,7 +164,7 @@ function DashboardPersonal( {carbon ,check, task, list } )
         
             */}
         <Grid item xs={4} md={12} lg={12} sm container m style={{padding:'50px 0px'}}>
-              <Grid item xs={6} md={6} lg={6} style={{padding:'64px 0px'}}>
+              <Grid item xs={6} md={6} lg={6} style={{padding:'69px 0px'}}>
                 <ResponsiveContainer height='82%' width='95%'>
                   <LineChart
                     width={600}
