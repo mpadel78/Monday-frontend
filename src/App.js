@@ -36,7 +36,6 @@ function App() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("The link was clicked.");
 
     if (view === "Team Sustainability Scoreboard") setView("Personal Sustainability Scoreboard");
     else setView("Team Sustainability Scoreboard");
@@ -52,9 +51,10 @@ function App() {
 
   // set the name of the user's team name 
  useEffect(() => {
-     getListData().then(x => setName(x.teamName));
+    getListData();
+    setName(list.teamName);
 
- }, [name])
+ }, [name,list.teamName])
 
  //gets the user currently stored points
  useEffect(() => {
@@ -65,6 +65,7 @@ function App() {
 
     async function getListData(){
         let output = await getUserDetailsMAPI();
+        console.log(output.teamName)
         return setList(output);
     };
 
@@ -73,19 +74,7 @@ function App() {
             console.log(list.userId);
             return setCarbon(output);
     };
- 
- 
-  //Plan B firebase setup
-   /* useEffect(() => {
-
-    Add a new document in collection "cities"
-  ``setDoc(doc(db, "Users", "user"), {
- points: carbon, 
-});
-
-  }, [carbon])*/
   
-
   return (
     <div class="App">
       <Card>
@@ -101,7 +90,7 @@ function App() {
           </Button>
       </div>
       <div>
-        <Popups trigger={true} name={badge} />
+
         {view === "Team Sustainability Scoreboard" ? <></> : 
         <div style={{padding:'13px'}}>
           <Card variant="outlined" style={{ height:"45%", overflowX: "scroll", whiteSpace: 'nowrap' }}>

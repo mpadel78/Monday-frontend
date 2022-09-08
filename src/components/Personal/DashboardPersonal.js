@@ -49,7 +49,6 @@ function DashboardPersonal( {carbon ,check, task, list } )
         setAsp(output["Avoid single-use plastic"]);
         setAd(output["Airdrying clothes"]);
 
-        console.log(output);
         return setActivityData(output);
     };
 
@@ -85,7 +84,7 @@ function DashboardPersonal( {carbon ,check, task, list } )
   ];
 
   useEffect(() => {
-      console.log(carbon);
+
    if (task === "Carpool")
    {
       setCp(cp + 1);

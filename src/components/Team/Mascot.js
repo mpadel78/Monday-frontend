@@ -57,7 +57,7 @@ useEffect(() => {
   {
     setStatus("Good");
   }
-  else if (accountPoints >= 8)
+  else if (accountPoints >= 400)
   {
     setStatus("Excellent");
   }
