@@ -44,18 +44,27 @@ function App() {
 
   // set the name of the user's team name 
  useEffect(() => {
-   getUserDetailsMAPI()
-    .then((val) => {
-      setList(val);
-      setName(list.teamName)
-      console.log(list)})
+     getListData().then(x => setName(x.teamName));
+
  }, [name])
 
- /* gets the user currently stored points 
+ //gets the user currently stored points
  useEffect(() => {
-  let userId = list.userId;
-  setCarbon(getSingleUserTotalPoints(userId));
- }, []) */
+  if(list){
+      getCarbonSavings();
+  }
+ }, [list])
+
+    async function getListData(){
+        let output = await getUserDetailsMAPI();
+        return setList(output);
+    };
+
+    async function getCarbonSavings(){
+            let output = await getSingleUserTotalPoints(list.userId);
+            console.log(list.userId);
+            return setCarbon(output);
+    };
  
  
   //Plan B firebase setup
@@ -87,7 +96,7 @@ function App() {
         <Popups trigger={true} name={badge} />
         {view === "Team Sustainability Scoreboard" ? <></> : 
         <div style={{padding:'13px'}}>
-          <Card variant="outlined" style={{ height:"45%", width: "98%", overflowX: "scroll", whiteSpace: 'nowrap' }}>
+          <Card variant="outlined" style={{ height:"45%", overflowX: "scroll", whiteSpace: 'nowrap' }}>
             <Badges carbon={carbon} setBadge={setBadge} />
           </Card>
         </div>
@@ -125,8 +134,8 @@ function App() {
             paddingRight: "10px",
           }}
         >
-          <Card style={{ padding:'0px 2px' }} variant="outlined">
-            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} />}
+          <Card style={{ padding:'0px 3px' }} variant="outlined">
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} list = {list} />}
           </Card>
         </Grid>
       </Grid>
