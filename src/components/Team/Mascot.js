@@ -1,30 +1,63 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import Grid from "@mui/material/Grid";
+import {
+  GetTeamsPoints,
+  GetTeamWeeklyStats,
+  getTeamLeaderboardMonthlyStats,
+  getTeamLeaderboardYearlyStats,
+  getUserLeaderboardMonthlyStats,
+  getUserLeaderboardYearlyStats
+} from "../../services/teamService";
+import {
+  getUserDetailsMAPI,
+  getAllUsersNamesAndIds
+} from "../../services/mondayService";
 
 function Mascot({carbon}) {
 
   const [date, setMonth] = useState(new Date());
   const [status, setStatus] = useState("Bad");
+  const [userData, setUserData] = useState();
+  const [accountPoints, setAccountPoints] = useState(0);
+
+  async function getUserData(){
+    let output = await getUserDetailsMAPI();
+    return setUserData(output);
+  };
+
+  async function getUserMonthlyData(accountId){
+    let output = await getUserLeaderboardMonthlyStats(accountId);
+    let sum = 0;
+    output.map(x => sum += x.carbon_saving)
+    return setAccountPoints(sum);
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, [])
+
+  useEffect(() => {
+    if(userData){
+      let result = getUserMonthlyData(userData.accountId);
+    }
+  }, [userData])
+
 
   var month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
-const img = [
-""
-]
-
 useEffect(() => {
   
-  if (carbon >= 150 && carbon < 385)
+  if (accountPoints >= 1 && accountPoints < 3)
   {
     setStatus("Ok");
   }
-  else if (carbon >= 385 && carbon < 400)
+  else if (accountPoints >= 3 && accountPoints < 8)
   {
     setStatus("Good");
   }
-  else if (carbon >= 400)
+  else if (accountPoints >= 8)
   {
     setStatus("Excellent");
   }
@@ -33,24 +66,21 @@ useEffect(() => {
 
   }
 
-}, [carbon])
+}, [accountPoints])
 
-console.log(status)
 
   return (
      <div>
-      <div style={{display:"flex",alignItems:'center',justifyContent:"center"}}>
         <div class="points2">
           <strong>
             <p>{month[date.getMonth()]} Progress</p>
-            <p class="pts" style={{color:'green'}}>{carbon} KG Carbon Saved</p>
+            <p class="pts" style={{color:'green'}}>{accountPoints} KG Carbon Saved</p>
           </strong>
-        </div>
         </div>
         {(status.includes("Ok")) ? (
         <>
 
-          <img src="bad2.jpg" alt="mascot-b2" width="72%" height="70%" />
+          <img src="bad2.jpg" alt="mascot-b2" width="400" height="480" />
           <h3>Help our greener habits 
           <br/>
           mascot by completing
@@ -60,36 +90,34 @@ console.log(status)
         </>
         ) : (status.includes("Good")) ? (
         <>
-          <img src="mascot.jpg" alt="mascot-g" width="72%" height="70%" />
-          <h3>Keep up the good work!
-          <br/> 
-          Your team saved 400 kg more 
-          <br/>
-          carbon than last month!</h3>
-
-        </>
-        ) :  (status.includes("Excellent")) ? (
-        <>
-
-          <img src="good2.png" alt="mascot-g2" width="72%" height="70%" />
-          
-          <h3>Keep up the good work!
-          <br/> 
-          Your team saved 400 kg more 
-          <br/>
-          carbon than last month!</h3>
-
-        </>
-        ) : (
-          <>
-            <img src="bad.jpg" alt="mascot-b" width="71%" height="70%" />
-
-            <h3>Help our greener habits 
+          <img src="mascot.jpg" alt="mascot-g" width="400" height="480" />
+          <h3>Help our greener habits
             <br/>
             mascot by completing
             <br/>
             sustainable actions!</h3>
 
+        </>
+        ) :  (status.includes("Excellent")) ? (
+        <>
+
+          <img src="good2.jpg" alt="mascot-g2" width="400" height="480" />
+
+          <h3>Help our greener habits
+            <br/>
+            mascot by completing
+            <br/>
+            sustainable actions!</h3>
+
+        </>
+        ) : (
+          <>
+          <img src="bad.jpg" alt="mascot-b" width="400" height="480"></img>
+            <h3>Help our greener habits 
+              <br/>
+            mascot by completing
+            <br/>
+            sustainable actions!</h3>
           </>
         )}
     </div> 

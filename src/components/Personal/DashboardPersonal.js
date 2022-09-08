@@ -60,6 +60,7 @@ function DashboardPersonal( {carbon ,check, task } )
   ];
 
   useEffect(() => {
+      console.log(carbon);
    if (task === "Carpool")
    {
       setCp(cp + 1); 

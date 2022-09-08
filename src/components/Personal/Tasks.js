@@ -67,28 +67,29 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
   const submitTask = (e) => {
     let body ={};
 
+    //Don't need set carbon, will create an API call to update carbon.
       if (carbon !== 0)
       {
-        setCarbon(getSingleUserTotalPoints(list.userId));
+        //setCarbon(getSingleUserTotalPoints(list.userId));
 
         body = {
-          userId: list.userId,
+          userId: String(list.userId),
           Activity: e.name,
-          Date: value,
-          Carbon_Savings: carbon + e.points,
-          TeamId: list.teamId,
-          AccountId: list.accountId
+          Date: value.toISOString().split('T')[0],
+          Carbon_Savings: e.points,
+          TeamId: String(list.teamId),
+          AccountId: String(list.accountId)
         }
       }
       else 
       {
          body = {
-        userId: list.userId,
+        userId: String(list.userId),
         Activity: e.name,
-        Date: value,
+        Date: value.toISOString().split('T')[0],
         Carbon_Savings: e.points,
-        TeamId: list.teamId,
-        AccountId: list.accountId
+        TeamId: String(list.teamId),
+        AccountId: String(list.accountId)
     };
 
       }
