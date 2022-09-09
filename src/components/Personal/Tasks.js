@@ -224,8 +224,8 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
           <Grid container direction="row" spacing={1}>
             <Grid
               item
-              xs={12}
-              md={12}
+              xs={14}
+              md={14}
               lg={6}
             >
               <Typography gutterBottom variant="subtitle1">

@@ -217,7 +217,7 @@ function DashboardPersonal( {carbon ,check, task, list } )
                   <Tooltip />
                   <Legend />
                   <Bar dataKey="Carpool" fill="#8884d8" />
-                  <Bar dataKey="Use an electric car " fill="#82ca9d" />
+                  <Bar dataKey="Use an electric car" fill="#82ca9d" />
                   <Bar dataKey="Use public transporation" fill="red" />
                   <Bar dataKey="Cycle" fill="#e7b859" />
                   <Bar dataKey="Have a vegetarian meal" fill="#92cbdf" />
@@ -264,7 +264,7 @@ function DashboardPersonal( {carbon ,check, task, list } )
               lg={12}
               style={{ backgroundColor: "white", height:"81vh" }}
             >
-              <div style={{marginTop:"100px", fontSize:"30px"}}>
+              <div style={{marginTop:"105px", fontSize:"30px"}}>
                   <span>Take action to live sustainably and</span>
                   <br/>
                   <span>track the impact you make on the</span>
