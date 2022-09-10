@@ -97,6 +97,17 @@ function Badges({ carbon, setBadge })
                           <span>next badge.</span>
               </Card>
             )}
+             {badges.slice(2,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img  className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
           </div>
       ) : (status.includes("2")) ? (
         <div>  
@@ -109,6 +120,17 @@ function Badges({ carbon, setBadge })
                           <span>next badge.</span>
               </Card>
             )}
+             {badges.slice(3,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
           </div>
         ) : (status.includes("3")) ? (
           <div>  
@@ -121,6 +143,17 @@ function Badges({ carbon, setBadge })
                             <span>next badge.</span>
                 </Card>
               )}
+               {badges.slice(3,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
             </div>
             ) : (status.includes("4")) ? (
               <div>  
@@ -133,6 +166,17 @@ function Badges({ carbon, setBadge })
                                 <span>next badge.</span>
                     </Card>
                   )}
+                   {badges.slice(4,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
                 </div>
                 ) : (status.includes("5")) ? (
                   <div>  
@@ -145,6 +189,17 @@ function Badges({ carbon, setBadge })
                                     <span>next badge.</span>
                         </Card>
                       )}
+                       {badges.slice(5,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
                     </div>
                     ) : (status.includes("6")) ? (
                       <div>  
@@ -157,6 +212,17 @@ function Badges({ carbon, setBadge })
                                         <span>next badge.</span>
                             </Card>
                           )}
+                           {badges.slice(6,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
                         </div>
                         ) : (status.includes("7")) ? (
                           <div>  
@@ -169,6 +235,18 @@ function Badges({ carbon, setBadge })
                                             <span>next badge.</span>
                                 </Card>
                               )}
+
+                              {badges.slice(7,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
                             </div>
                             ) : (status.includes("8")) ? (
                               <div>  
@@ -181,12 +259,23 @@ function Badges({ carbon, setBadge })
                                                 <span>next badge.</span>
                                     </Card>
                                   )}
+                                  {badges.slice(8,9).map((data) =>       
+                                    <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                              <div className="overlay">
+                                                <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                <h2 style={{color:'green'}}>{data.name}</h2>
+                                                <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                <span>next badge.</span>
+                                              </div>
+                                    </Card>
+                                  )}
                                 </div>
                                 ) : (status.includes("9")) ? (
                                   <div>  
                                       {badges.slice(0,9).map((data) =>       
                                         <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
-                                                    <img src={data.img} alt="mascot" width="150" height="150"></img>
+                                                    <img src={data.img} alt="mascot" width="150" height="150" />
                                                     <h2 style={{color:'green'}}>{data.name}</h2>
                                                     <strong><p>{data.got} kg Carbon Saved</p></strong>
                                                     <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
@@ -195,11 +284,19 @@ function Badges({ carbon, setBadge })
                                       )}
                                     </div>
                                     ) : (
-          <div style={{textAlign:"center", margin:"90px 0px"}}>
-          <span style={{ fontSize:"30px"}}> Save 385 kg of CO2 to earn your first badge</span>
-          
-          </div> 
-      )
+                                  <div>  
+                                      {badges.slice(0,9).map((data) =>       
+                                        <Card style={{display: "inline-block", flexDirection:'column', textAlign:'center', padding:'6px 6px', marginLeft:'10px', width:'294px', height:'402px'}}>
+                                                  <div className="overlay">
+                                                    <img className="blur" src={data.img} alt="mascot" width="150" height="150" />
+                                                    <h2 style={{color:'green'}}>{data.name}</h2>
+                                                    <strong><p>{data.got} kg Carbon Saved</p></strong>
+                                                    <span style={{whiteSpace: 'normal'}}>Congrats, you have earned the {data.name} badge. Save {data.need} kg more of carbon to unlock the </span>
+                                                    <span>next badge.</span>
+                                                  </div>
+                                        </Card>
+                                      )}
+                                    </div>)
       }  
      
       </Grid>
