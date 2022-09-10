@@ -58,11 +58,11 @@ function DashboardPersonal( {carbon ,check, task, list } )
 
 
     const data = [
-    { Week: "0", value: 0 },
-    { Week: "Week 1", value: carbon },
-    { Week: "Week 2", value: 0 },
-    { Week: "Week 3", value: 0 },
-    { Week: "Week 4", value: 0 },
+    { Week: "0", carbon_pts: 0 },
+    { Week: "Week 1", carbon_pts: carbon },
+    { Week: "Week 2", carbon_pts: 0 },
+    { Week: "Week 3", carbon_pts: 0 },
+    { Week: "Week 4", carbon_pts: 0 },
   ];
   var month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
@@ -163,28 +163,29 @@ function DashboardPersonal( {carbon ,check, task, list } )
         
             */}
         <Grid item xs={4} md={12} lg={12} sm container m style={{padding:'50px 0px'}}>
-              <Grid item xs={6} md={6} lg={6} style={{padding:'69px 0px'}}>
-                <ResponsiveContainer height='82%' width='95%'>
+              <Grid item xs={6} md={6} lg={6} style={{padding:'69px 0px'}}>   
+                <p style={{fontSize:"22px"}}>{month[date.getMonth()] + " total carbon saved"}</p>
+                <ResponsiveContainer height='82%' width='95%'> 
                   <LineChart
                     width={600}
                     height={300}
                     data={data}
                     margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="5 5" />
                     <Line
                       connectNulls
                       type="monotone"
-                      dataKey="value"
+                      dataKey="carbon_pts"
                       stroke="#8884d8" fill="#8884d8"
                     />
-                    <XAxis/>
+                    <XAxis dataKey="Week"/>
                     <YAxis />
                     
                     <Tooltip />
                   </LineChart>
                 </ResponsiveContainer>
-                  <h3>{ "Month of " + month[date.getMonth()]}</h3>
+                 
               </Grid>
 
               <Grid item xs={6} md={6} lg={6}>
@@ -198,6 +199,7 @@ function DashboardPersonal( {carbon ,check, task, list } )
                 <br />
 
               </Grid>
+              <p style={{ paddingLeft:'90px', fontSize:"22px"}}>{month[date.getMonth()] + " carbon saved by sustainable actions"}</p>
               <ResponsiveContainer width="88%" height="50%">
                 <BarChart
                   layout="vertical"
@@ -215,7 +217,6 @@ function DashboardPersonal( {carbon ,check, task, list } )
                   <XAxis type="number" />
                   <YAxis dataKey="name" type="category"  />
                   <Tooltip />
-                  <Legend />
                   <Bar dataKey="Carpool" fill="#8884d8" />
                   <Bar dataKey="Use an electric car" fill="#82ca9d" />
                   <Bar dataKey="Use public transporation" fill="red" />

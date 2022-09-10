@@ -195,7 +195,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
 
       <Button component="label" onClick={handleClick2}>
       <strong>
-              {`${view2 === "" ? "Login action for another day" : "Close"}`}
+              {`${view2 === "" ? "Login action for another day" : "Back"}`}
       </strong></Button>
 
       {view2 === "Login Another Day" ? 

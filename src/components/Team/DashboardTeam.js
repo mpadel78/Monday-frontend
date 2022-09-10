@@ -123,10 +123,10 @@ function DashboardTeam( {carbon}) {
           <Paper style={{ width: "90%", padding:"12px 35px" }}>
             <TableContainer>
               <Table>
-                <TableHead style={{ backgroundColor: `${green[300]}` }}>
+                <TableHead>
                   <TableRow>
                     <TableCell>Name</TableCell>
-                    <TableCell align="center">Total month points</TableCell>
+                    <TableCell align="center">Carbon Saved Points</TableCell>
                     {/*<TableCell align="center">Current Team rank</TableCell>*/}
 
                   </TableRow>
