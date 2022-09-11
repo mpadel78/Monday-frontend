@@ -21,7 +21,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function DashboardPersonal( {carbon ,check, task, list } )
+function DashboardPersonal( {carbon ,check, task, list, pts } )
 {
   const [date, setMonth] = useState(new Date());
   const [cp, setCp] = useState(0);
@@ -87,31 +87,31 @@ function DashboardPersonal( {carbon ,check, task, list } )
 
    if (task === "Carpool")
    {
-      setCp(cp + 1);
+      setCp(cp + pts);
    }
    else  if (task === "Use an electric car" )
    {
-      setEc(ec +1); 
+      setEc(ec + pts); 
    }
    else if (task === "Use public transportation")
    {
-      setPt(pt + 1);
+      setPt(pt + pts);
    }
    else if (task ===  "Cycle")
    {
-      setCycle(cycle + 1);
+      setCycle(cycle + pts);
    } 
    else if (task ===  "Have a vegetarian meal" )
    {
-      setVm(vm +1);
+      setVm(vm + pts);
    }
    else if (task === "Eat a vegan meal")
    {
-      setVm2 (vm2 + 1);
+      setVm2 (vm2 + pts);
    }
    else if (task === "Avoid food waste")
    {
-      setAfw(afw + 1);
+      setAfw(afw + pts);
    }
    else if (task === "Recycle")
    {
@@ -119,15 +119,15 @@ function DashboardPersonal( {carbon ,check, task, list } )
    }
    else if (task === "Avoid single-use plastic" )
    {
-      setAsp(asp + 1);
+      setAsp(asp + pts);
    }
    else if (task === "Airdrying clothes")
    {
-      setAd(ad + 1);
+      setAd(ad + pts);
    }
    else return 
 
-  }, [task])
+  }, [carbon])
   
 
   return (

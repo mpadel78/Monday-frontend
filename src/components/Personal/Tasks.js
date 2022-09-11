@@ -30,7 +30,7 @@ import {getUserDetailsMAPI, getTeamDetailsMAPI} from "../../services/mondayServi
 
 const colors = ['#D6FFEB','#D6EAFF','#FFECD6', '#D7D6FF','#ECD6FF']
 
-export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
+export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setPts } ) {
   const tasks = [
     { name: "Carpool", points: 1, color: colors[0]},
     { name: "Use an electric car", points: 2, color: colors[0]},
@@ -100,6 +100,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask } ) {
     
 
     setTask(e.name); // set task name 
+    setPts(e.points); // points from current task
     setCarbon(carbon + e.points); // update carbon saved based on task
 
     console.log(body);
