@@ -30,6 +30,7 @@ function App() {
   const [check, setCheck] = useState(false);
   const [badge, setBadge] = useState("");
   const [list, setList] = useState({});
+  const [pts, setPts] = useState(0);
 
 
   const [name, setName] = useState("");
@@ -115,7 +116,7 @@ function App() {
             variant="outlined"
             style={{ height: "100vh", overflowY: "auto" }}
           >
-            {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} task={task} setTask={setTask} setCheck={setCheck} />}
+            {view === "Team Sustainability Scoreboard" ? <Mascot carbon={carbon} /> : <Tasks carbon={carbon} setCarbon={setCarbon} task={task} setTask={setTask} setCheck={setCheck} setPts={setPts} />}
           </Card>
          
         </Grid>
@@ -132,7 +133,7 @@ function App() {
           }}
         >
           <Card style={{ padding:'0px 3px' }} variant="outlined">
-            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} list = {list} />}
+            {view === "Team Sustainability Scoreboard" ? <DashboardTeam carbon={carbon} /> : <DashboardPersonal carbon={carbon} task={task} check={check} list={list} pts={pts}/>}
           </Card>
         </Grid>
       </Grid>
