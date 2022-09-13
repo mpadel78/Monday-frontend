@@ -5,7 +5,7 @@ import axios from 'axios'
 export const postUserActivity = async (userData) => {
     if(!userData)
         return null;
-  return axios.post("https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/insertActivity", userData, {headers: {
+  return axios.post("https://www.greenbackend.xyz/insertActivity", userData, {headers: {
     'content-type': 'application/json'
   }}
   )
@@ -15,7 +15,7 @@ export const postUserActivity = async (userData) => {
 export const getSingleUserTotalPoints = async (userId) => {
     if(!userId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getSingleUserTotalPoints/${userId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getSingleUserTotalPoints/${userId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response => response.data);
@@ -25,7 +25,7 @@ export const getSingleUserTotalPoints = async (userId) => {
 export const getSingleUserTotalPointsPerMonthByWeek = async (userId) => {
     if(!userId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getSingleUserTotalPointsPerMonthByWeek/${userId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getSingleUserTotalPointsPerMonthByWeek/${userId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response =>  response.data);
@@ -35,7 +35,7 @@ export const getSingleUserTotalPointsPerMonthByWeek = async (userId) => {
 export const getSingleUserTotalPointsPerYearByMonth = async (userId) => {
     if(!userId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getSingleUserTotalPointsPerYearByMonth/${userId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getSingleUserTotalPointsPerYearByMonth/${userId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response =>  response.data);
@@ -45,11 +45,10 @@ export const getSingleUserTotalPointsPerYearByMonth = async (userId) => {
 export const getSingleUserTotalPointsPerWeekPerActivity = async (userId) => {
     if(!userId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getSingleUserTotalPointsPerWeekPerActivity/${userId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getSingleUserTotalPointsPerWeekPerActivity/${userId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response =>{
-      console.log(response.data);
       let newObj = {};
       response.data.map(x => {
           newObj[x.activity_performed] =+ x.carbon_saving ? x.carbon_saving : 0;
@@ -60,7 +59,7 @@ export const getSingleUserTotalPointsPerWeekPerActivity = async (userId) => {
 export const getSingleUserTotalPointsYTDByActivity = async (userId) => {
     if(!userId)
         return null;
-    return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getSingleUserTotalPointsYTDByActivity/${userId}`, {headers: {
+    return axios.get(`https://www.greenbackend.xyz/getSingleUserTotalPointsYTDByActivity/${userId}`, {headers: {
             'content-type': 'application/json'
         }}
     ).then(response =>  response.data);

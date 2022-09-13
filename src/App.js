@@ -66,13 +66,11 @@ function App() {
 
     async function getListData(){
         let output = await getUserDetailsMAPI();
-        console.log(output.teamName)
         return setList(output);
     };
 
     async function getCarbonSavings(){
             let output = await getSingleUserTotalPoints(list.userId);
-            console.log(list.userId);
             return setCarbon(output);
     };
   

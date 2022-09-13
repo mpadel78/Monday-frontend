@@ -5,7 +5,7 @@ import axios from 'axios'
 
 //Get All Teams Points for month???
 export const GetTeamsPoints = async () => {
-  return axios.get("https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getTeamsPoint", {headers: {
+  return axios.get("https://www.greenbackend.xyz/getTeamsPoint", {headers: {
       'content-type': 'application/json'
     }}
   ).then(response => response.data);
@@ -15,7 +15,7 @@ export const GetTeamsPoints = async () => {
 export const GetTeamWeeklyStats = async (teamId) => {
     if(!teamId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getTeamWeeklyStats/${teamId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getTeamWeeklyStats/${teamId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response => response.data);
@@ -25,7 +25,7 @@ export const GetTeamWeeklyStats = async (teamId) => {
 export const getSingleTeamMonthlyStats= async (teamId) => {
     if(!teamId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getTeamMonthlyStats/${teamId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getTeamMonthlyStats/${teamId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response =>  response.data);
@@ -35,7 +35,7 @@ export const getSingleTeamMonthlyStats= async (teamId) => {
 export const getUserLeaderboardMonthlyStats = async (accountId) => {
     if(!accountId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getUserLeaderboardMonthlyStats/${accountId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getUserLeaderboardMonthlyStats/${accountId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response =>  response.data);
@@ -45,7 +45,7 @@ export const getUserLeaderboardMonthlyStats = async (accountId) => {
 export const getUserLeaderboardYearlyStats = async (accountId) => {
     if(!accountId)
         return null;
-  return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getUserLeaderboardYearlyStats/${accountId}`, {headers: {
+  return axios.get(`https://www.greenbackend.xyz/getUserLeaderboardYearlyStats/${accountId}`, {headers: {
       'content-type': 'application/json'
     }}
   ).then(response =>  response.data);
@@ -55,7 +55,7 @@ export const getUserLeaderboardYearlyStats = async (accountId) => {
 export const getTeamLeaderboardMonthlyStats = async (accountId) => {
     if(!accountId)
         return null;
-    return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getTeamLeaderboardMonthlyStats/${accountId}`, {headers: {
+    return axios.get(`https://www.greenbackend.xyz/getTeamLeaderboardMonthlyStats/${accountId}`, {headers: {
             'content-type': 'application/json'
         }}
     ).then(response =>  response.data);
@@ -65,7 +65,7 @@ export const getTeamLeaderboardMonthlyStats = async (accountId) => {
 export const getTeamLeaderboardYearlyStats = async (accountId) => {
     if(!accountId)
         return null;
-    return axios.get(`https://greenteam-env.eba-xqy8i9zf.us-east-2.elasticbeanstalk.com/getTeamLeaderboardYearlyStats/${accountId}`, {headers: {
+    return axios.get(`https://www.greenbackend.xyz/getTeamLeaderboardYearlyStats/${accountId}`, {headers: {
             'content-type': 'application/json'
         }}
     ).then(response => response.data);
