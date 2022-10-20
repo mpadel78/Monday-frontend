@@ -48,12 +48,7 @@ export const getSingleUserTotalPointsPerWeekPerActivity = async (userId) => {
   return axios.get(`https://www.greenbackend.xyz/getSingleUserTotalPointsPerWeekPerActivity/${userId}`, {headers: {
       'content-type': 'application/json'
     }}
-  ).then(response =>{
-      let newObj = {};
-      response.data.map(x => {
-          newObj[x.activity_performed] =+ x.carbon_saving ? x.carbon_saving : 0;
-      });
-      return newObj});
+  ).then(response => response.data);
 };
 //Returns amount of points for a single user YTD
 export const getSingleUserTotalPointsYTDByActivity = async (userId) => {
