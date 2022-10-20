@@ -75,7 +75,7 @@ useEffect(() => {
         <div class="points2">
           <strong>
             <p>{month[date.getMonth()]} Progress</p>
-            <p class="pts" style={{color:'green'}}>{accountPoints.toFixed(2) ?? 0} KG Carbon Saved</p>
+            <p class="pts" style={{color:'green'}}>{accountPoints?.toFixed(2) ?? 0} KG Carbon Saved</p>
           </strong>
         </div>
       </div>

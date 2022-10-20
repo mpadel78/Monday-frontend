@@ -202,7 +202,7 @@ function DashboardPersonal( {carbon ,check, task, list, pts } )
               <div class="points">
                 <strong>
                   <p>{month[date.getMonth()]} Progress</p>
-                  <p class="pts">{carbon.toFixed(2) ?? 0} KG Carbon Saved</p>
+                  <p class="pts">{carbon?.toFixed(2) ?? 0} KG Carbon Saved</p>
                 </strong>
               </div>
             </Grid>
