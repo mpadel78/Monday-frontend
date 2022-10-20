@@ -139,7 +139,7 @@ function DashboardTeam( {carbon}) {
                       <TableCell component="th" scope="rh">
                         {`${userIdAndNameList?.find(obj => obj.id == res.UserId).name } ` || null}
                       </TableCell>
-                      <TableCell align="center">{res.Carbon_Saving.toFixed(2)}</TableCell>
+                      <TableCell align="center">{res.Carbon_Saving.toFixed(2) ?? 0}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
