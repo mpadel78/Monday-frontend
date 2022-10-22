@@ -10,9 +10,7 @@ import "./App.css";
 import Badges from "./components/Personal/Badges";
 import Button from "monday-ui-react-core/dist/Button";
 import "monday-ui-react-core/dist/main.css"
-import Popups from "./components/Popups/Popups";
-import  { db } from './Firebase/firebase1';
-import { doc, setDoc } from "firebase/firestore"; 
+import Popups from "./components/Popups/Popups"; 
 import {getUserDetailsMAPI, getTeamDetailsMAPI} from "./services/mondayService";
 import {
   postUserActivity,
@@ -38,6 +36,8 @@ function App() {
   const handleClick = (e) => {
     e.preventDefault();
 
+   
+
     if (view === "Team Sustainability Scoreboard") setView("Personal Sustainability Scoreboard");
     else setView("Team Sustainability Scoreboard");
   };
@@ -45,6 +45,7 @@ function App() {
   useEffect(() => {
     if (carbon !== 0)
     {
+      
       setCheck(true);
     }
 

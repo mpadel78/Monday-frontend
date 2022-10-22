@@ -5,9 +5,7 @@ import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Button from "monday-ui-react-core/dist/Button";
-import { toast } from 'react-toastify';
 import Activities from "./Activities";
-import 'react-toastify/dist/ReactToastify.css';
 import "monday-ui-react-core/dist/main.css";
 import {
     postUserActivity,
