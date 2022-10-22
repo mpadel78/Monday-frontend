@@ -35,19 +35,70 @@ function DashboardPersonal( {carbon ,check, task, list, pts } )
   const [asp, setAsp] = useState(0);
   const [ad, setAd] = useState(0);
   const [activityData, setActivityData] = useState();
+  const [weeklyPoints, setWeeklyPoints] = useState();
 
     async function getActivityData(){
         let output = await getSingleUserTotalPointsPerWeekPerActivity(list.userId);
-        setCp(output["Carpool"]);
-        setEc(output["Use an electric car"]);
-        setPt(output["Use public transportation"]);
-        setCycle(output["Cycle"]);
-        setVm(output["Have a vegetarian meal"]);
-        setVm2(output["Eat a vegan meal"]);
-        setAfw(output["Avoid food waste"]);
-        setRecycle(output["Recycle"]);
-        setAsp(output["Avoid single-use plastic"]);
-        setAd(output["Airdrying clothes"]);
+        let newObj = {};
+        output.map(x => {
+            newObj[x.activity_performed] =+ x.carbon_saving ? x.carbon_saving : 0;
+        });
+
+        let newObjTotalPointsPerWeek = {};
+        for (const key in output) {
+            console.log(output[key]);
+
+                newObjTotalPointsPerWeek[output[key].insert_at] += ~~newObjTotalPointsPerWeek[output[key].insert_at] ? output[key].carbon_saving: 0;
+        }
+        console.log(newObjTotalPointsPerWeek);
+        let newDates = {}
+        let index = 1;
+
+        let outer = [];
+        let sortable = [];
+        for (var date in newObjTotalPointsPerWeek) {
+            sortable.push([date, newObjTotalPointsPerWeek[date]]);
+        }
+        sortable.sort(function(a, b) {
+            a[0] = a[0].split('-').join('');
+            b[0] = b[0].split('-').join('');
+            return a > b ? 1 : a < b ? -1 : 0;
+            // return a.localeCompare(b);         // <-- alternative
+        });
+        let index2 = 1;
+        sortable.map(x => {
+            let inner = {};
+            inner["Week"] = `Week ${index2}`;
+            inner["carbon_pts"] = x[1];
+            outer.push(inner);
+            index2++;
+        });
+
+        outer.sort(function(a, b) {
+            a = a.Week;
+            b = b.Week;
+            return a > b ? 1 : a < b ? -1 : 0;
+            // return a.localeCompare(b);         // <-- alternative
+        });
+
+
+        for (const newObjTotalPointsPerWeekKey in newObjTotalPointsPerWeek) {
+            newDates[`Week ${index}`] = newObjTotalPointsPerWeek[newObjTotalPointsPerWeekKey];
+            index++;
+        }
+
+        setWeeklyPoints(outer);
+
+        setCp(newObj["Carpool"]);
+        setEc(newObj["Use an electric car"]);
+        setPt(newObj["Use public transportation"]);
+        setCycle(newObj["Cycle"]);
+        setVm(newObj["Have a vegetarian meal"]);
+        setVm2(newObj["Eat a vegan meal"]);
+        setAfw(newObj["Avoid food waste"]);
+        setRecycle(newObj["Recycle"]);
+        setAsp(newObj["Avoid single-use plastic"]);
+        setAd(newObj["Airdrying clothes"]);
 
         return setActivityData(output);
     };
@@ -58,12 +109,12 @@ function DashboardPersonal( {carbon ,check, task, list, pts } )
 
 
     const data = [
-    { Week: "0", carbon_pts: 0 },
     { Week: "Week 1", carbon_pts: carbon },
     { Week: "Week 2", carbon_pts: 0 },
     { Week: "Week 3", carbon_pts: 0 },
     { Week: "Week 4", carbon_pts: 0 },
   ];
+
   var month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
@@ -151,7 +202,7 @@ function DashboardPersonal( {carbon ,check, task, list, pts } )
               <div class="points">
                 <strong>
                   <p>{month[date.getMonth()]} Progress</p>
-                  <p class="pts">{carbon} KG Carbon Saved</p>
+                  <p class="pts">{carbon?.toFixed(2) ?? 0} KG Carbon Saved</p>
                 </strong>
               </div>
             </Grid>
@@ -169,7 +220,7 @@ function DashboardPersonal( {carbon ,check, task, list, pts } )
                   <LineChart
                     width={600}
                     height={300}
-                    data={data}
+                    data={weeklyPoints}
                     margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
                   >
                     <CartesianGrid strokeDasharray="5 5" />

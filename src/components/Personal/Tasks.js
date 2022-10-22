@@ -101,7 +101,6 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
     setPts(e.points); // points from current task
     setCarbon(carbon + e.points); // update carbon saved based on task
 
-    console.log(body);
 
     if (view2 === "")
     {
@@ -114,21 +113,18 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
         let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPoints(userId);
-        console.log(userTotalPoints);
     }
 
     const UserTotalPointsPerMonthByWeek = () => {
         let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsPerMonthByWeek(userId);
-        console.log(userTotalPoints);
     }
 
     const UserTotalPointsPerYearByMonth = () => {
         let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsPerYearByMonth(userId);
-        console.log(userTotalPoints);
     }
 
     const UserTotalPointsPerWeekPerActivity = () => {
@@ -142,7 +138,6 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
         let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsYTDByActivity(userId);
-        console.log(userTotalPoints);
     }
 
 
@@ -154,37 +149,31 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
     const GetTeamWeeklyStatsFunc = () => {
         let teamId = list.teamId;
         let SeparateTeamsResults = GetTeamWeeklyStats(teamId);
-        console.log(SeparateTeamsResults);
     }
 
     const getSingleTeamMonthlyStatsFunc = () => {
         let teamId = list.teamId;
         let SeparateTeamsResults = getSingleTeamMonthlyStats(teamId);
-        console.log(SeparateTeamsResults);
     }
 
     const getUserLeaderboardMonthlyStatsFunc = () => {
         let accountId = list.accountId;
         let SeparateTeamsResults = getUserLeaderboardMonthlyStats(accountId);
-        console.log(SeparateTeamsResults);
     }
 
     const getUserLeaderboardYearlyStatsFunct = () => {
         let accountId = list.accountId;
         let SeparateTeamsResults = getUserLeaderboardYearlyStats(accountId);
-        console.log(SeparateTeamsResults);
     }
 
     const getTeamLeaderboardMonthlyStatsFunc = () => {
         let accountId = list.accountId;
         let SeparateTeamsResults = getTeamLeaderboardMonthlyStats(accountId);
-        console.log(SeparateTeamsResults);
     }
 
     const getTeamLeaderboardYearlyStatsFunct = () => {
         let accountId = list.accountId;
         let SeparateTeamsResults = getTeamLeaderboardYearlyStats(accountId);
-        console.log(SeparateTeamsResults);
     }
 
 

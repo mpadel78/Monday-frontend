@@ -29,7 +29,7 @@ function Mascot({carbon}) {
   async function getUserMonthlyData(accountId){
     let output = await getUserLeaderboardMonthlyStats(accountId);
     let sum = 0;
-    output.map(x => sum += x.carbon_saving)
+    output.map(x => sum += x.Carbon_Saving)
     return setAccountPoints(sum);
   };
 
@@ -75,7 +75,7 @@ useEffect(() => {
         <div class="points2">
           <strong>
             <p>{month[date.getMonth()]} Progress</p>
-            <p class="pts" style={{color:'green'}}>{accountPoints} KG Carbon Saved</p>
+            <p class="pts" style={{color:'green'}}>{accountPoints?.toFixed(2) ?? 0} KG Carbon Saved</p>
           </strong>
         </div>
       </div>

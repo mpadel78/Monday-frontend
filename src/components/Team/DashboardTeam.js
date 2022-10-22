@@ -74,6 +74,7 @@ function DashboardTeam( {carbon}) {
   useEffect(() => {
     if(userData){
       getUserIdAndNameList();
+
     }
 
   }, [userData])
@@ -136,9 +137,9 @@ function DashboardTeam( {carbon}) {
                   {userMonthlyData?.map((res) => (
                     <TableRow>
                       <TableCell component="th" scope="rh">
-                        {`${userIdAndNameList?.find(obj => obj.id == res.userid).name }`}
+                        {`${userIdAndNameList?.find(obj => obj.id == res.UserId).name } ` || null}
                       </TableCell>
-                      <TableCell align="center">{res.carbon_saving}</TableCell>
+                      <TableCell align="center">{res.Carbon_Saving?.toFixed(2) ?? 0}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
