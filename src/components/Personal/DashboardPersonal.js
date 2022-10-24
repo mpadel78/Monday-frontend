@@ -39,68 +39,94 @@ function DashboardPersonal( {carbon ,check, task, list, pts } )
 
     async function getActivityData(){
         let output = await getSingleUserTotalPointsPerWeekPerActivity(list.userId);
-        let newObj = {};
-        output.map(x => {
-            newObj[x.activity_performed] =+ x.carbon_saving ? x.carbon_saving : 0;
-        });
+        if(output!= null)
+        {
+            let newObj = {};
+            let currentDate = new Date();
+            let currentMonthList = [];
+            let currentMonth = currentDate.getMonth();
 
-        let newObjTotalPointsPerWeek = {};
-        for (const key in output) {
-            console.log(output[key]);
+            output.map(x => {
+                let dateObj = new Date(x.insert_at);
+                let dataMonth = dateObj.getMonth();
+                if(currentMonth == dataMonth)
+                {
+                    currentMonthList.push(x);
+                }
+            });
 
-                newObjTotalPointsPerWeek[output[key].insert_at] += ~~newObjTotalPointsPerWeek[output[key].insert_at] ? output[key].carbon_saving: 0;
+
+            currentMonthList.map(x => {
+                newObj[x.activity_performed] =+ x.carbon_saving ? x.carbon_saving : 0;
+            });
+            let newObjTotalPointsPerWeek = {};
+            currentMonthList.map( x => {
+                let dateName = x.insert_at;
+                if(x.insert_at in newObjTotalPointsPerWeek)
+                {
+                    newObjTotalPointsPerWeek[dateName] += x.carbon_saving;
+                }
+                else{
+                    newObjTotalPointsPerWeek[dateName] = x.carbon_saving;
+                }
+            })
+
+
+
+            let newDates = {}
+            let index = 1;
+
+            let outer = [];
+            let sortable = [];
+            for (var date in newObjTotalPointsPerWeek) {
+                sortable.push([date, newObjTotalPointsPerWeek[date]]);
+            }
+            sortable.sort(function(a, b) {
+                a[0] = a[0].split('-').join('');
+                b[0] = b[0].split('-').join('');
+                return a > b ? 1 : a < b ? -1 : 0;
+                // return a.localeCompare(b);         // <-- alternative
+            });
+            let index2 = 1;
+            sortable.map(x => {
+                let inner = {};
+                inner["Week"] = `Week ${index2}`;
+                inner["carbon_pts"] = x[1];
+                outer.push(inner);
+                index2++;
+            });
+
+            outer.sort(function(a, b) {
+                a = a.Week;
+                b = b.Week;
+                return a > b ? 1 : a < b ? -1 : 0;
+                // return a.localeCompare(b);         // <-- alternative
+            });
+
+
+            for (const newObjTotalPointsPerWeekKey in newObjTotalPointsPerWeek) {
+                newDates[`Week ${index}`] = newObjTotalPointsPerWeek[newObjTotalPointsPerWeekKey];
+                index++;
+            }
+            setWeeklyPoints(outer);
+
+            setCp(newObj["Carpool"]);
+            setEc(newObj["Use an electric car"]);
+            setPt(newObj["Use public transportation"]);
+            setCycle(newObj["Cycle"]);
+            setVm(newObj["Have a vegetarian meal"]);
+            setVm2(newObj["Eat a vegan meal"]);
+            setAfw(newObj["Avoid food waste"]);
+            setRecycle(newObj["Recycle"]);
+            setAsp(newObj["Avoid single-use plastic"]);
+            setAd(newObj["Airdrying clothes"]);
+
+
+
+            return setActivityData(currentMonthList);
         }
-        console.log(newObjTotalPointsPerWeek);
-        let newDates = {}
-        let index = 1;
+        return null;
 
-        let outer = [];
-        let sortable = [];
-        for (var date in newObjTotalPointsPerWeek) {
-            sortable.push([date, newObjTotalPointsPerWeek[date]]);
-        }
-        sortable.sort(function(a, b) {
-            a[0] = a[0].split('-').join('');
-            b[0] = b[0].split('-').join('');
-            return a > b ? 1 : a < b ? -1 : 0;
-            // return a.localeCompare(b);         // <-- alternative
-        });
-        let index2 = 1;
-        sortable.map(x => {
-            let inner = {};
-            inner["Week"] = `Week ${index2}`;
-            inner["carbon_pts"] = x[1];
-            outer.push(inner);
-            index2++;
-        });
-
-        outer.sort(function(a, b) {
-            a = a.Week;
-            b = b.Week;
-            return a > b ? 1 : a < b ? -1 : 0;
-            // return a.localeCompare(b);         // <-- alternative
-        });
-
-
-        for (const newObjTotalPointsPerWeekKey in newObjTotalPointsPerWeek) {
-            newDates[`Week ${index}`] = newObjTotalPointsPerWeek[newObjTotalPointsPerWeekKey];
-            index++;
-        }
-
-        setWeeklyPoints(outer);
-
-        setCp(newObj["Carpool"]);
-        setEc(newObj["Use an electric car"]);
-        setPt(newObj["Use public transportation"]);
-        setCycle(newObj["Cycle"]);
-        setVm(newObj["Have a vegetarian meal"]);
-        setVm2(newObj["Eat a vegan meal"]);
-        setAfw(newObj["Avoid food waste"]);
-        setRecycle(newObj["Recycle"]);
-        setAsp(newObj["Avoid single-use plastic"]);
-        setAd(newObj["Airdrying clothes"]);
-
-        return setActivityData(output);
     };
 
     useEffect(() => {

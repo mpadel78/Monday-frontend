@@ -61,14 +61,18 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
     else setView2("");
   };
 
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+    }
+
   const submitTask = (e) => {
     let body ={};
-    UserTotalPointsPerWeekPerActivity();
 
     //Don't need set carbon, will create an API call to update carbon.
       if (carbon !== 0)
       {
         //setCarbon(getSingleUserTotalPoints(list.userId));
+
 
         body = {
           userId: String(list.userId),
@@ -106,7 +110,6 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
     {
       onChange(new Date()); // set date back to current 
     }
-    
   }
 
     const getSingleUserPoints = () => {
@@ -131,7 +134,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
         let userId = list.userId;
 
         let userTotalPoints = getSingleUserTotalPointsPerWeekPerActivity(userId);
-        console.log(userTotalPoints);
+
     }
 
     const UserTotalPointsYTDByActivity = () => {
@@ -143,7 +146,7 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
 
     const GetTeamsPointsFunc = () => {
         let SeparateTeamsResults = GetTeamsPoints();
-        console.log(SeparateTeamsResults);
+
     }
 
     const GetTeamWeeklyStatsFunc = () => {
@@ -268,7 +271,6 @@ export default function Tasks( {carbon, setCarbon, setCheck, task, setTask, setP
               <Grid item xs={5} md={12} lg={6} sm container>
                 <Grid item xs>
                   <Button onClick={(e) => submitTask(data, e)} component="label">
-                  {/*<Button onClick={() => mondayUserTest()} component="label">*/}
                     I did this today
                   </Button>
                   <br />
